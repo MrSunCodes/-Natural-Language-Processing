@@ -1,0 +1,46 @@
+Welcome back.
+Earlier in the week, you used a Naive Bayes
+method to classify tweets. But that can be used
+to do a number of other things like identify
+who's an author of a text. I will give you a few ideas
+of what those things may be. When you use Naive Bayes to predict the sentiments
+of a tweet, what you're actually doing is estimating the probability for each class by using the joint probability of
+the words in classes. The Naive Bayes formula is just the ratio between
+these two probabilities, the products of the priors
+and the likelihoods. You can use this ratio between conditional
+probabilities for much more than sentiment analysis. For one, you could do
+author identification. If you had two large corporal, each written by
+different authors, you could train the model
+to recognize whether a new document was written
+by one or the other. Or if you had some works by Shakespeare and some
+works by Hemingway, you could calculate
+the Lambda for each word to predict how likely a new word is to be used by Shakespeare or
+alternatively by Hemingway. This method also allows you
+to determine author identity. Another common use
+is spam filtering. Using information
+taken from the sender, subject and content, you could decide whether an
+email is spam or not. One of the earliest uses of Naive Bayes was filtering between relevant and irrelevant
+documents in a database. Given the sets of keywords
+in a query, in this case, you only needed to calculate the likelihood of the
+documents given the query. You can't know beforehand what's irrelevant or a relevant
+document looks like. So you can compute the
+likelihood for each document in your dataset and then store the documents based
+on its likelihoods. You can choose to keep
+the first M results or the ones that have a likelihood larger than a certain threshold. Finally, you can also use Naive Bayes for word
+disambiguation, which is to say, breaking down words for
+contextual clarity. Consider that you have only
+two possible interpretations of a given word within a text. Let's say you don't know if the word bank in your reading is referring to the bank of a river or to a
+financial institution. To disambiguate your word, calculate the score
+of the document, given that it refers to each one of the
+possible meanings. In this case, if the text
+refers to the concept of river instead of
+the concept of money, then the score will be bigger
+than one. That's cool. In summary, Bayes Rule and
+it's naive approximation has a wide range of applications
+in sentiment analysis, author identification, information retrieval
+and word disambiguation. It's a popular method since it's relatively simple to
+train, use and interpret. You'll be using
+the Bayes rule and Naive Bayes again
+in the weeks ahead. Now you are fully equipped. As you've seen in this video, Naive Bayes can be used for
+many classification tasks. Next, I will show you the assumptions that underlie
+the Naive Bayes method.

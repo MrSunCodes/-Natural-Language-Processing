@@ -1,0 +1,41 @@
+This week, I'll go into the assumptions
+underlying the Naive Bayes method. The main one is independence
+of words in a sentence and I'll tell you why this can be a big
+problem when the method is applied. >> Naive Bayes is a very simple model
+because it doesn't require setting any custom parameters. This method is referred to as naive
+because of the assumptions it makes about the data. The first assumption is independence
+between the predictors or features associated with each class and the second
+has to do with your validation sets. Let's explore each of these assumptions
+and how they could affect your results. To illustrate towards independence
+between features looks like, let's look at the following sentence. It is sunny and hot in the Sahara Desert. Naive Bayes assumes that the words
+in a piece of text are independent of one another, but as you can see,
+this typically isn't the case. The word sunny and hot often appear
+together as they do in this example. Taken together, they might also
+be related to the thing they're describing like a beach or a desert. So the words in a sentence are not always
+necessarily independent of one another, but Naive Bayes assumes that they are. This could lead you to under or over estimates the conditional
+probabilities of individual words. When using Naive Bayes, for example,
+if your task was to complete the sentence, it's always cold and snowy in blank,
+Naive Bayes might assign equal probability to the words spring,
+summer, fall, and winter even though from the context you can see that winter
+should be the most likely candidate. In the next courses of
+this specialization, you will be introduced to some more
+sophisticated methods that deal with this. Another issue with Naive Bayes is that it
+relies on the distribution of the training data sets. A good data set will contain
+the same proportion of positive and negative tweets as a random sample would. However, most of the available
+annotated corpora are artificially balanced just like the data set
+you'll use for the assignment. In the real tweet stream, positive tweet is sent to occur more
+often than their negative counterparts. One reason for this is that negative tweets might contain
+content that is banned by the platform or muted by the user such as inappropriate or
+offensive vocabulary. Assuming that reality behaves
+as your training corpus, this could result in a very optimistic or
+very pessimistic model. There's a lot more on this in
+the last video of this module, which analyzes the sources
+of errors in Naive Bayes. Let's do a quick recap of
+all this new information. The assumption of independence in Naive
+Bayes is very difficult to guarantee, but despite that, the model works
+pretty well in certain situations. And for the assignments in this module,
+the relative frequency of positive and negative tweets in your training
+data sets needs to be balanced in order to deliver an accurate results. Now you understand the assumptions
+that underlie the Naive Bayes method. What if it fails to perform well for
+some sentence? In the next video,
+I'll show you what to do in such cases.

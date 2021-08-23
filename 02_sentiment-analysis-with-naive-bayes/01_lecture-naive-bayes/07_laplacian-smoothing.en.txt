@@ -1,0 +1,25 @@
+Let's now dive into
+Laplacian smoothing, a technique you can use to avoid your probabilities
+being zero. The expression used to calculate the conditional probability
+of a word, given the class, is the frequency of the word in the corpus shown here
+as freq of word i, class divided by the number of words in the corpus or N class. Smoothing the probability
+function means that you will use a slightly different
+formula from the original. Note that I've added a
+one in the numerator. This little transformation avoids the probability being zero. However, it adds a new term to all the frequencies that is not correctly
+normalized by N class. To account for this, you will add a new term in
+the denominator V class. That is the number of unique
+words in your vocabulary to account for that extra term
+added in the numerator. So now all the probabilities in each column will sum to one. This process is called
+Laplacian smoothing. Going back to this example, let's use the formula on it. The first thing you
+need to calculate is the number of unique
+words in your vocabulary. In this example, you
+have eight unique words. So now let's calculate the probability for each
+word in the positive class. For the word I, the
+positive class, you get 3 plus 1 divided by
+13 plus 8 which is 0.19. For the negative class, you have 3 plus 1 divided
+by 12 plus 8 which is 0.2, and then so on for the
+rest of the table. The numbers shown here
+have been rounded, but using this method the sum of probabilities in your
+table will still be one. Note that the word because no longer has a probability of zero. Great, that's
+Laplacian smoothing. Now you know why you have to
+use Laplacian smoothing so your probabilities don't end up being zero. That's very cool.

@@ -1,0 +1,26 @@
+You have done most of
+the work to arrive at your log-likelihood
+already. Now let's wrap up. Now you can calculate the
+log-likelihood of the tweets as the sum of the Lambdas
+from each word in the tweet. So for word I, you add 0, for am you add 0. For word happy you add
+2.2, for words because, I and am, you add 0 and for
+word learning, you add 1.1. This sum is 3.3, and this value is higher than 0. Remember how previously
+you saw that the tweet was positive if the product
+was bigger than one. With the log of 1 equal to 0, the positive values indicate
+that the tweet is positive. A value less than 0 would indicate that
+the tweet is negative. The log-likelihood for
+this tweet is 3.3. Since 3.3 is bigger than 0, the tweet is positive. Notice that this score is based entirely on the words
+happy and learning, both of which carry a
+positive sentiments. All the other words were neutral and didn't
+contribute to the score. See how much influence
+the power words have. Let's do a quick recap. You used your new
+skills to predict the sentiment of a tweet by summing all the Lambdas for each word that's
+appeared in the tweets. This score is called
+the log-likelihood. For the log-likelihood
+the decision threshold is 0 instead of 1. Positive tweets will have a positive
+log-likelihood above 0, and negative tweets will have a negative
+log-likelihood below 0. Well done. Now you can compute
+using log-likelihoods. They make many things
+simpler and they also help with
+numerical stability. Let's use them to implement the naive-bayes method
+in the next video.

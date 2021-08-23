@@ -1,0 +1,45 @@
+In order to derive Bayes' rule, let's first take a look at
+the conditional probabilities. Now think about what happens if
+instead of the entire Corpus, you only consider tweets
+that contain the word happy. This is the same as saying given that
+a tweet contains the word happy with that, you would be considering only the tweets
+inside the blue circle where many of the positive tweets are now excluded. In this case, the probability that
+a tweet is positive given that it contains the word happy simply
+becomes the number of tweets that are positive and
+also contain the word happy. And we divide that by the number
+that contain the word happy. As you can see by this calculation,
+your tweet has a 75% likelihood of being positive if
+it's contains the word happy. You could make the same case for
+positive tweets. The purple area denotes
+the probability that a positive tweets contains the word happy. In this case, the probability
+is 3 over 13, which is 0.231. With all of this discussion of the
+probability of missing certain conditions, we are talking about
+conditional probabilities. Conditional probabilities could
+be interpreted as the probability of an outcome B knowing that
+event A already happened. Or given that I'm looking
+at an element from set A, the probability that it
+also belongs to set B. There's another way of looking at this
+with the Venn diagram you saw before. So using the previous example,
+the probability of a tweets being positive given that it has the word
+happy is equal to the probability of the intersection between
+the tweets that are positive and the tweets that have the word happy
+divided by the probability of a tweets given from the Corpus
+having the word happy. Let's take a closer look at
+the equation from the previous slide. You could write a similar equation by
+simply swapping the position of the two conditions. Now, you have the conditional probability of a tweets containing the word happy
+given that it is a positive tweets. Armed with both of these equations,
+you're now ready to derive Bayes' rule. To combine these equations, note that the
+intersection represents the same quantity no matter which way it's written, knowing
+that you can remove it from the equation. With a little algebraic manipulation,
+you are able to arrive at this equation. This is now an expression of Bayes' rule
+in the context of the previous sentiment analysis problem. More generally, Bayes' rule
+states that the probability of X given Y is equal to the probability
+of Y given X times the ratio of the probability of X over
+the probability of Y and that's it. You just arrived at the basic
+formulation of Bayes' rule, nicely done. So to wrap up, you just derived Bayes' rule from
+expressions of conditional probability. Throughout the rest of this course,
+you'll be using Bayes' rule for various applications in NLP. The main takeaway for now is that Bayes' rule is based on the mathematical
+formulation of conditional probabilities. And that with Bayes' rule, you can
+calculate the probability of X given Y if you already know
+the probability of Y given X. And the ratio of
+the probabilities of X and Y. So that's great work. I'll see you later.

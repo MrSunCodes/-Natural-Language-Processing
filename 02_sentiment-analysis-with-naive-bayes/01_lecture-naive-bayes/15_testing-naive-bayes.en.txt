@@ -1,0 +1,70 @@
+This part will it be
+fun as you will apply the naive Bayes classifier
+on real test examples. It is similar to what you did in the first video of the week, but we'll cover some
+special corner cases. Once you have trained your model, the next step is to test it. You do so by taking the conditional
+probabilities you just derived and you use
+them to predict the sentiments of
+new unseen tweets. After that, you evaluate your model performance
+and you will do so just like how you did
+it in the last week. You use your test sets
+of annotated tweets. With the calculations
+you've done already, you have a table with
+the Lambda score for each unique word
+in your vocabulary. With your estimation
+of the log prior, you can predict sentiments
+on a new tweet. This new tweet says, I passed the NLP interview. You can use your model
+to predict if this is a positive or negative tweet. So before anything else, you must pre-processed this text removing
+the punctuation, stemming the words,
+and tokenizing to produce a vector of
+words like this one. Now you look up each word from the vector in your
+log-likelihood table. If the word is found, such as I pass the NLP, you sum over all the
+corresponding Lambda terms. The values that don't
+show up in the table of Lambdas, like interview, are considered neutral and don't contribute anything
+to this score. Your model can only give a score for words
+it's seen before. Now you add the log
+prior to account for the balance or imbalance of
+the classes in the dataset. So this course sums up to 0.48. Remember, if this score
+is bigger than zero, then this tweet has a
+positive sentiment. So yes, in your model
+and in real life, passing the NLP interview
+is a very positive thing. You just predicted the sentiment of a new tweet and
+that's awesome. It's time to test
+the performance of your classifier on unseen data, just like you already did for a different scenario in
+the previous module. Let's quickly review that process as applied to naive Bayes. This week's assignments
+includes a validation set. This data was set aside during training and is composed
+of a set of raw tweets, so X_val, and their
+corresponding sentiments, Y_val. You'll have to implement the accuracy function to
+measure the performance of your trained model represented by the Lambda table and the
+log prior using this data. First, compute the score
+of each entry in X_val, like you just did previously, then evaluates whether each
+score is greater than zero. This produces a
+vector populated with zeros and ones indicating if the predicted sentiment
+is negative or positive respectively for each tweet
+in the validation sets. With your new predictions vector, you can compute the accuracy of your model over the
+validation sets. To do this part, you will compare your predictions
+against the true value for each observation from
+your validation data, Y_val. If the values are equal and
+your prediction is correct, you will get a value of
+1 and 0 if incorrect. Once you have compared
+the values of every prediction
+with the true labels of your validation sets, you can compute the
+accuracy as the sum of this vector divided
+by the number of examples in the validation sets, just like you did for
+the logistic regression. Let's revisit everything
+you just did. To test the performance of
+your naive Bayes model, you use a validation set
+to allow you to predict the sentiment score for an unseen tweet using
+your newly trained model. Then you compared
+your predictions with the true labels provided in the validation sets to
+get the percentage of tweets that were correctly
+predicted by your label. Then you compared
+your predictions with the true labels provided
+in the validation sets. This allowed you to
+get the percentage of tweets that where it correctly
+predicted by your model. You also saw that words
+that don't appear in the Lambda table are
+treated as neutral words. Now you know how to apply the naive-based method
+to test examples. In the coding exercise
+at the end of the week, you will use it to
+classify tweets. Next, I will show you
+other things it can do.
