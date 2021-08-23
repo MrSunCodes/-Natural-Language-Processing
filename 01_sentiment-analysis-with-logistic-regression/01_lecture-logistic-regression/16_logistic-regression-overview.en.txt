@@ -1,0 +1,42 @@
+You will now get an overview
+of logistic regression. Previously, you learned
+to extract features, and now you will use those extracted features
+to predict whether a tweet has a positive sentiment
+or a negative sentiment. Logistic regression makes
+use of a sigmoid function which outputs a probability
+between zero and one. Let's take a look at the
+overview of logistic regression. Just a quick recap. In supervised machine learning, you have input features
+and a sets of labels. To make predictions
+based on your data, you use a function
+with some parameters to map your features
+to output labels. To get an optimum mapping
+from your features to labels, you minimize the cost function which works by
+comparing how closely your output Y hat is to the
+true labels Y from your data. After which the parameters
+are updated and you repeat the process until
+your cost is minimized. For logistic regression,
+this function F is equal to the
+sigmoid function. The function used to classify in logistic regression H is
+the sigmoid function and it depends on the parameters
+Theta and then the features vector X superscripts i, where i is used to denote the ith observation
+or data points. In the context of tweets, that's the ith tweets. Visually, the
+sigmoid function has this form and it approaches zero as the dot product
+of Theta transpose X, over here, approaches minus infinity and one as it
+approaches infinity. For classification, a
+threshold is needed. Usually, it is set to be 0.5 and this value corresponds to a dot product between Theta transpose and
+X equal to zero. So whenever the dot product is greater or equal than zero, the prediction is positive, and whenever the dot
+product is less than zero, the prediction is negative. So let's look at an example in the now familiar context of tweets and sentiment analysis. Look at the following tweet. After a preprocessing, you should end up with a list like this. Note that handles are deleted, everything is in
+lowercase and the word tuning is reduced
+to its stem, tun. Then you would be able to
+extract features given a frequencies dictionary and arrive at a vector
+similar to the following. With a bias units over here and two features that are the sum of positive and
+negative frequencies of all the words in
+your processed tweets. Now assuming that
+you already have an optimum sets of
+parameters Theta, you would be able to get the value of the
+sigmoid function, in this case, equal to 4.92, and finally, predict
+a positive sentiment. Now that you know the notation
+for logistic regression, you can use it to train
+a weight factor Theta. In the next video, you will learn about the
+mechanics behind training such a logistic
+regression classifier.

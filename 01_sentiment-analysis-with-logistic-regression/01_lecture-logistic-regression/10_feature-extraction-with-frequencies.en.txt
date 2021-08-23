@@ -1,0 +1,41 @@
+Welcome back. You
+previously learned to encode a tweet as a vector of dimension V. You will now
+learn to encode a tweet or specifically represented as
+a vector of dimension 3. In doing so, you'll have a much faster speed for your logistic
+regression classifier, because instead of
+learning V features, you only have to
+learn three features. Let's take a look at
+how you can do this. You just saw that the
+frequency of a word in a class is simply
+the number of times that the word appears
+on the set of tweets belonging to that class and that this table is basically a dictionary mapping
+from word class pairs, to frequencies, or
+it just tells us how many times each word showed up in its corresponding class. Now that you've built your
+frequencies dictionary, you can use it to extract useful features for
+sentiment analysis. What does a feature look like? Let's look at the
+arbitrary tweet m. The first feature would be
+a bias unit equal to 1. The second is the sum of the positive frequencies for
+every unique word on tweet m. The third is the sum of negative frequencies for every
+unique word on the tweet. So to extract the features
+for this representation, you'd only have to sum
+frequencies of words. Easy. For instance, take
+the following tweets. Now let's look at
+the frequencies for the positive class
+from the last lecture. The only words from the
+vocabulary that don't appear on these tweets are
+happy and because. Now let's take a look at
+the second feature from the representation that
+you saw on the last slide. To get this value, you need to sum the
+frequencies of the words from the vocabulary that
+appear on the tweet. At the end, you get a
+value equal to eight. Now let's get the value
+of the third feature. It is the sum of
+negative frequencies of the words from the vocabulary
+that appear on the tweet. For this example,
+you should get 11 after summing up the
+underlined frequencies. So far, this tweets, this representation
+would be equal to the vector 1, 8, 11. You now know how to represent a tweet as a vector
+of dimension 3. In the next video
+you will learn to pre-process your tweets
+and as a result, you will use those
+pre-processed words as words of your vocabulary.

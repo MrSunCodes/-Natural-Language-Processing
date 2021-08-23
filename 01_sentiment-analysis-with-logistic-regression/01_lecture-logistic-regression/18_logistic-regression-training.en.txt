@@ -1,0 +1,33 @@
+In the previous video, you learned how to classify
+whether a tweet has a positive sentiment
+or negative sentiment, using a theta that
+I have given you. In this video, you will learn your own
+theta from scratch, and specifically,
+I'll walk you through an algorithm that allows you
+to get your theta variable. Let's see how you can do this. To train your logistic
+regression classifier, iterate until you find the
+set of parameters theta, that minimizes your
+cost function. Let us suppose that your
+loss only depends on the parameters theta1 and theta2, you would have a
+cost function that looks like this contour
+plots on the left. On the right, you can see the evolution of the cost
+function as you iterate. First, you would have to initialize your parameters theta. Then you will update
+your theta in the direction of the gradient
+of your cost function. After a 100 iterations, you would be at this point, after 200 here, and so on. After many iterations, you
+derive to a point near your optimum costs and you'd
+end your training here. Let's look at this
+process in more detail. First, you'd have to initialize your
+parameters vector theta. Then you'd use the
+logistic function to get values for each
+of your observations. After that, you'd be able
+to calculate the gradients of your cost function and
+update your parameters. Finally, you'd be able to compute your cost J and determine if more iterations are
+needed according to a stop-parameter or maximum
+number of iterations. As you might have seen
+in the other courses, this algorithm is known
+as gradient descent. Now, that you have
+your theta variable, you want to evaluate your theta, meaning you want to
+evaluate your classifier. Once you put in your theta
+into your sigmoid function, do get a good classifier or
+do you get a bad classifier? In the next video, we will
+show you how you can do this.
