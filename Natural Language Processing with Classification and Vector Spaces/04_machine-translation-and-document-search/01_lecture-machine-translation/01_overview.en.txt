@@ -1,0 +1,29 @@
+In this video, you
+will get an overview of this week's
+learning objectives. In this fourth and final
+week of this course, you will learn to implement machine translation to translate the English word "hello" to
+the French word "bonjour". You will also learn to
+implement document search. For example, given a document
+such as the sentence, "Can I get a refund?" You can search for similar
+documents such as, what's your return policy? Or may I get my money back? You will learn any sets of
+skills that you can apply to both of these
+useful NLP tasks. Here's a preview of
+the skills that you'll practice in this week's
+lectures and assignments. Don't worry if you do not understand what some of
+these mean right now. You will learn about
+each of these and get some practice before you
+move on to the assignments. First, you will learn
+about what it means to transform a vector
+such as a word vector. You will learn how to
+implement k nearest neighbors, which is a way of searching
+for similar items. You'll learn about hash tables, which will help you assign your word vectors into subsets. Then you will learn how to divide the vector
+space into regions. Again, don't worry if you don't understand what this
+means at this point, you'll get some visual
+understanding of what this means and how it can help you improve search for similar words. Finally, you'll know how to implement locality
+sensitive hashing, which helps you perform
+approximate k nearest neighbors, an efficient way of searching
+for similar word vectors. By practicing how to find
+similar word vectors, you'll effectively
+know how to implement machine translation
+and document search. This is very exciting material, and we hope that you will really enjoy what you will
+learn this week.

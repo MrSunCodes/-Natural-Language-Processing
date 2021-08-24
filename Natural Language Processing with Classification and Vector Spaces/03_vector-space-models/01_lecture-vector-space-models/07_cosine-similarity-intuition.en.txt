@@ -1,0 +1,34 @@
+Good to see you again. In this video, you're going to
+learn about cosine similarity, which is another type
+of similarity function. It's basically makes use of the cosine
+of the angle between two vectors. And based off that, it tells you
+whether two vectors are close or not. In this section, you will see
+the problem of using euclidean distance, especially when comparing vector
+representations of documents or corpora, and how the cosine similarity metric
+could help you overcome that problem. To illustrate how the euclidean
+distance might be problematic, let's take the following example. Suppose that you are in a vector space
+where the corpora are represented by the occurrence of the words disease and
+eggs. Here is the representation
+of a Food corpus and Agriculture corpus and the History corpus. Each one of these corpora have
+text related to that subject. But you know that the word totals in
+the corpora differ from one another. In fact, the agriculture and the history
+corpus have a similar number of words, while the Food corpus has
+a relatively small number. Let's define the euclidean
+distance between the food and the Agriculture corpus as d1. And let the euclidean distance between the
+agriculture and the History corpus be d2. As you can see, the distance d2
+is smaller than the distance d1, which would suggest that
+the agriculture and history corpora are more similar than
+the agriculture and food corpora. Another common method for
+determining the similarity between vectors is computing the cosine
+of their inner angle. If the angle is small,
+the cosine would be close to one. And as the angle approaches 90 degrees,
+the cosine approaches zero. As you can see here,
+the angle alpha between food and agriculture is smaller than the angle
+beta between agriculture and history. In this particular case, the cosine of those angles is a better
+proxy of similarity between these vector representations than
+their euclidean distance. Now, you're familiar with
+the main intuition behind the use of the cosine similarity as a metric to
+compare the similarity between two vector representations. Remember that the main advantage of
+this metric over the euclidean distance is that it isn't biased by the size
+difference between the representations. Soon, you'll get the chance to
+actually calculate this metric.

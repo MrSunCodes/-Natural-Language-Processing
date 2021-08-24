@@ -1,0 +1,26 @@
+I will finish this
+week by showing you how you can use fast
+k-nearest neighbor to search for pieces
+of text related to a query in a large
+collection of documents. You simply create vectors for both and find the
+nearest neighbors. To get ready to perform
+document search, first, think about how to
+represent documents as vectors instead of
+just words as vectors. Let's say you have this documents composed of three words. I love learning. How can you represent this entire
+documents as a vector? Well, you can find the word vectors for
+each individual word. I love learning. Then just add them together, so the sum of all
+these words vectors becomes a documents vector, where the same dimension
+as the word vectors, in this case, three-dimensions. You can then apply
+document search by using k-nearest neighbors.
+Let's go this up. Create a mini dictionary
+for word embeddings. Here's the list of what's
+contained in the document. You're going to
+initialize the documents embedding as an array of zeros. Now for each word in a document, you'll get the word
+vector if the word exists in the dictionary else zero. You add these all up and return
+the documents embedding. Please try it out. You learned in this
+video an example of a very general method that text can be embedded into
+vector space so that nearest neighbors refer to
+text with similar meaning. Well, you will learn more
+advanced ways to embed text. This basic structure
+will reappear again and again as it's used
+throughout modern NLP.
