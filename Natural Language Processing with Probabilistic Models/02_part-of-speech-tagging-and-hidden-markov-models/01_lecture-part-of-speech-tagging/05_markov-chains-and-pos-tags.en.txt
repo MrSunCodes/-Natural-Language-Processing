@@ -1,0 +1,52 @@
+So far, you've seen Markov
+chains as a graph of states and transitions between these states. Now, I'll show you how to use them for
+parts of speech tagging. If you think about a sentence as a
+sequence of words with associated parts of speech tags, you can represent that
+sequence with a graph where the parts of speech tags are events that can occur
+depicted by the states of our model graph. In this example NN is for
+nouns, VB is for verbs. And other stands for all other tags. The edges of the graph have weights or
+transition probabilities associated with them which define the probability
+of going from one state to another. There is one last important property
+that Markov chains possess, the so called Markov property,
+which states that the probability of the next event only depends
+on the current events. The Markov property helps keep the model
+simple by saying all you need to determine the next state is the current states. It doesn't need information from
+any of the previous states. Going back to the analogy of whether
+water is in solid, liquid, or gas states. If you look at a cup of water
+that is sitting outside, the current states of
+the water is a liquid state. When modeling the probability that
+the water in the cup will transition into the gas states, you don't need to know
+the previous history of the water. Whether it's previously
+came from ice cubes or whether it's previously
+came from rain clouds. That makes sense, right? Let's revisit the sentence
+example from earlier. If you look at this sentence again and want to know the probability that the next
+word following learn is a noun then this just depends on the current
+state that you're in. In this case the verb states denoted
+by VB because the current word learned is a verb, so the probability
+of the next word being a noun is the transition probability for going from
+the verb to the noun and end states. The transition probability is written on
+the arrow that goes from VB to an end. And as you can see it's 0.4. You can also use a table to store
+the states and transition probabilities. A table is an equivalent, but more compact
+representation of the Markov chain model. And this table is called
+a transition matrix. A transition matrix is an n by n matrix
+with n being the number of states in the graph. Each row in the matrix represents
+transition probabilities of one state to all other states. For example, the first row represents the
+case where the current states is a noun. The columns represent the possible
+future states that might come next. The values inside the table represent
+the transition probability of going from a noun to a noun from a noun to
+a verb and a noun to some other states. Notice that for all the odds going
+transition probabilities from a given state, the sum of these transition
+probabilities should always be one. Equivalently in the transition matrix, all of the transition probabilities
+in each row should add up to one. Some of you may have noted one
+little flaw in this model. It doesn't tell you how to assign a part
+of speech tag to the first word in the sentence. This is because all of the states
+in the model correspond towards. But what do you do when there is no
+previous word as in the case when beginning a sentence. To handle this you can introduce what is
+known as an initial state by you include these probabilities in the Table A. So now it has dimensions n plus 1 by n. Notice that the transition matrix can be
+written as an actual matrix like this. To recap, Markov chains consists of a set
+q of n states p1 all the way to qn. The transition matrix a has dimensions
+n plus 1 by n with the initial probabilities in the first row. Nice work so far. I'll see you later. In this video you learned about
+initial probability distributions and you learned about
+transition probabilities. In the next video you're going to learn
+about hidden Markov models which are used to decode the hidden states of a word. In our case that would be
+the parts of speech of that word.

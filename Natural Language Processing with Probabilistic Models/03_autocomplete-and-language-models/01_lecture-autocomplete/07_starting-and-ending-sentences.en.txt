@@ -1,0 +1,123 @@
+So if conditional
+probabilities are working with a sliding window
+of two or more words, what's happens at the beginning
+or end of a sentence. Let's take a closer look
+at what's happens at the very beginning and the
+very end of a sentence. I'll show you how to modify the sentence using
+two new symbols, which denotes the start
+and end of a sentence. You will see why these new
+symbols are important, then you will add them
+to the beginning and end of your sentences for bigram, and general, and Graham cases. Now I'll explain how to resolve the first term in the
+bigram approximation. Let's revisit the
+previous sentence. The teacher drinks tea, or the first word the. You don't have the context
+of the previous word, so you can't calculate
+a bigram probability, which you'll need to
+make your predictions. So what you'll do is
+add a special term, so that each sentence
+of your corpus becomes a bigram that you can calculate the probabilities for. An example of a start
+token is this S, which you can now
+use to calculate the bigram probability of the
+first word, the like this. A similar principle
+applies to N-grams. For example, with trigrams, the first two words don't
+have enough context, so you don't need to use the
+unigram of the first word, and bigram of the
+first two words. The missing contexts
+can be fixed by adding two starts of
+sentence symbols, bracket S, bracket S to the
+beginning of the sentence. So now the sentence probability becomes a product of
+trigram probabilities. To generalize this for N-grams, add N-1 start tokens, brackets S at the beginning
+of each sentence. So now you can deal with the unigrams in the
+beginning of sentences, what about the end
+of the sentences? Recall that the conditional
+probability of word y given word x was estimated as
+the count of all bigrams. X comma y divided by the counts of all
+bigrams starting with x. You simplify the denominator as the counts of all unigrams x. There is one case where the
+simplification does not work when word X is the
+last word of the sentence. For example, if you look at the word drinks in this corpus, the sum of all bigrams starting with drinks is only equal to one, because the only bigram
+that starts with the word drinks is
+drinks chocolate. On the other hand, the
+word drinks appears twice in the corpus and the other occurrence
+is a unigram. To continue using your
+simplified formula for the conditional probability, you need to add an end
+of sentence token. There's another issue with
+your engram probabilities. Let's say you have a
+very small corpus with only three sentences
+consisting of two unique words, yes and no. The corpus consists of
+three sentences: yes no, yes yes, and no no. These are all possible
+sentences of length two. These can be generated
+from the words yes and no, and starting with the starts
+of sentence symbol brackets S. So to calculate the bigram probability
+of the sentence yes yes, take the probability of yes with the added starts of
+sentence symbol, multiplied by the
+probability of yes being the second word where the
+previous word was also yes. The probability of yes
+with the added start of sentence symbol is the count
+of bigrams with yes at the start of the sentence
+divided by the count of all bigrams starting with the
+start of sentence symbol. You can only use the sum of bigram counts in the denominator. Next, let's handle the
+remaining unigrams. Multiply the first term by the fraction of the
+counts of bigram, yes yes, over the
+counts of all bigram, starting with the word yes. You get two over
+three times one half, which is equal to one over three. So there you have
+the probability of the sentence yes yes
+estimated from your corpus. So you have calculated the probability of
+the sentence yes, yes and goes in one-third. Now, you will calculate the probability of
+the sentence yes no, and gets one-third again. Next, you get the probability of the sentence no no,
+and again, one-third. Finally, the probability
+of the sentence no yes, and this is equal to
+zero because there is no bigram no yes in the corpus. Now here comes a surprise, if you add the probabilities
+of all four sentences, the sum equals to one exactly
+what you were aiming for. That's great work. So
+let's take a look at all possible three
+words sentences generated from words yes and no. Begin by calculating
+the probability of the sentence, yes, yes, yes, then yes, yes, no, and so on. Until you've calculated
+the probabilities of all eight possible
+sentences of length three. Finally, when you add up the probabilities of all the possible sentences
+of length three, you, again, get the sum of one. However, what you really
+want is the sum of the probabilities
+for all sentences of the length to be equal to one, so that you can, for example, compare the probabilities of two sentences of
+different lengths. In other words, you want the probabilities of all
+two-words sentences, what's the probabilities of
+all three-words sentences? What's the probabilities of all other sentences
+of arbitrary length? You want this to be equal to one. There is a surprisingly
+simple fix for this. You can pre-process your
+training corpus to add a special symbol which represents the end
+of the sentence, which you will
+denote with brackets backslash S after each sentence. For example, when using a
+bigram model for the sentence, the teacher drinks tea, append the simple, backslash
+S after the word tea. Now the sentence
+probability calculation contains a new term, the term represents
+the probability that the sentence will end
+after the word tea. This also fixes the issue with probability of the sentences of certain length equal to one. Let's see if this also results your problem with the
+bigram probability formula. Now there are two
+bigrams starting with the word drinks and these
+are drinks, chocolates, and drinks backslash S
+and accounts of unigrams, drinks remains the same. That's great, you can keep using the simplified formula for the bigram probability
+calculation. How would you apply this
+fixed for N-grams in general? It turns out that
+even for N-grams, just adding one symbol per sentence in the corpus is enough. For example, when
+calculating trigram models, the original sentence will be pre-processed to contain
+two start tokens, any single end token. Let's have a look
+at an example of bigram probabilities generated on a slightly larger corpus. Here's the corpus and here are the conditional probabilities
+of some of the bigrams. Now try to calculate
+the probability of Lyn with the start
+of sentence symbol. There are three sentences total, so the start symbol appears
+three times in the corpus. That gives you the denominator, the bigram brackets S Lyn
+appears twice in the corpus, so that gives you the
+numerator of two. So the probability
+of the start token followed by Lyn is
+two over three. Now calculate the probability of the sentence, Lyn
+drinks chocolate. Start with a probability
+of bigram brackets S Lyn, which is two over
+three, then Lyn drinks, which is one-half,
+then drinks chocolate, which is also
+one-half, and finally, chocolate backslash S,
+which is two over two. Note that the result is
+equal to one over six, which is lower than the value of one over three you
+might expect when calculating the
+probability of one of the three sentences
+in the training corpus. This also applies to the other two sentences
+in the corpus, this remaining probability
+can be distributed to other sentences
+possibly generated from the bigrams in this corpus. That's how the model
+generalizes. I'll see you later.

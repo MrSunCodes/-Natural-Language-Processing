@@ -1,0 +1,44 @@
+Welcome back. In this video,
+you're going to learn about Markov chains. Markov chains are really important because
+they are used in speech recognition and they're also used for
+parts of speech tagging. In this video, you're going to learn
+about transition probabilities and you will also learn about states. Before jumping in, let's start with a small example to
+show what you want to accomplish and then you will see how Markov chains
+can help accomplish the task. If you look at the sentence why not learn,
+the word learn is a verb. The question you want to answer
+is whether the following word in the sentence is a noun, a verb or
+some other parts of speech. If you're familiar with
+the English language, you might guess that if you
+see a verb in a sentence, the following word is more likely to
+be a noun rather than another verb. So the idea here is that the likelihood
+of the next word's parts of speech tag in a sentence tends to depend on the
+parts of speech tag of the previous word. Make sense, right? You can represent the different
+likelihoods visually. Here, you have a circle
+representing a verb and over here, you have a circle representing a noun. You can draw an arrow that goes from
+the verb circle to the noun circle, so the following arrow. You can draw another arrow that
+goes from the verb circle and loops around back to point at itself. You can associate numbers with each of
+these arrows where a larger number means that there is a higher likelihood you're
+moving from one circle to the other. In this example, the arrow does goes from
+the verb to the noun maybe zero point six. Whereas the arrow that goes from the verb
+back to the verb has a zero point two. The higher number of zero point six means
+that it's more likely to go from a verb to a noun as opposed to from
+a new verb to another verb. This is a great example of how Markov
+chains work on a very small scale. So what's our Markov chains? They're a type of stochastic model that
+describes a sequence of possible events. To get the probability for each event, it needs only
+the states of the previous events. The word stochastic just means random or
+randomness. So a stochastic model incorporates and models processes does have
+a random component to them. A Markov chain can be
+depicted as a directed graph. So in the context of computer science,
+a graph is a kind of data structure that is visually represented as
+a set of circles connected by lines. When the lines that connect
+the circles have arrows, that's indicates a certain direction,
+this is called a directed graph. The circles of the graph
+represents states of our model. A state refers to a certain
+condition of the present moment. For example, if you are using a graph to
+model whether water is in a frozen state, a liquid state or a gas states,
+then you would draw a circle for each of these states to represent the
+three possible states that water can be at the present moment. I'm labeling each state as q1, q2, q3,
+etc to give them each a unique name, then referring to the set of all
+states with the capital letter Q. For this graph,
+there are three states, q1, q2 and q3. Next up, get ready to use Markov
+chains to tag parts of speech.

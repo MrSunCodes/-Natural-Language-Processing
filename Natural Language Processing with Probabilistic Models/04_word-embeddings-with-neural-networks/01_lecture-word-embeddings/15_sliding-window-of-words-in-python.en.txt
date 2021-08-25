@@ -1,0 +1,49 @@
+Previously, you clean then
+tokenize the corpus and you now have this clean corpus as an array of words or tokens. Now, I will show you how to extract center words and
+their context words, which will serve as
+examples to train the continuous bag
+of words model. Here's the code to
+do this in Python. The get_windows function
+takes two arguments: words, which is an array
+of words or tokens, but I'll stick with
+the term words here. The context have size
+stored in the variable C, which is the number
+of words to be taken on each side
+of the center word. This was true in
+the previous video. For a total window size of five. The function initializes
+a counter with the index of the first word that has enough words before it. So in the working example, I'm happy because I'm learning, the tokenized array would be I'm happy because
+I'm learning, where I has the index 0
+and index 1, and so on. For a context have size of two, or the context words are the two words before and
+after the center word. The first center word that
+can be used is happy. Its index is two, which is the size of the context. I then start a loop
+in this index, which will run until it reaches the last
+possible center word, which is the last word that
+has two words after it, stopping just before it reaches the index
+corresponding to the number of words in the array minus the size of the context. In each iteration of the loop, I extract the center word, which is the word that
+the current index. Next, I create an
+array with the C words before the center word
+and the C words after it. I can now return the context
+word and center words. I'm using a special way of
+returning value in Python. As you can see, I'm using the yield keyword
+instead of return, without going into
+too much detail where return word immediately
+exit the function, yield returns the
+values and simply pauses the main
+get_window function, and the function known as a generator function
+to the use of yield will then continue running if more
+values are needed. Simply put, with a yield, I can return values from
+a function several times, which is what I'm doing at each iteration of the word loop. Finally, I increase my
+index by one to move my sliding window one
+word to the right. So just to recap, the get _windows function takes any corpus and the
+context size and returns the context words and center words for each
+successive window. Here's how to use this function. I'm using a loop to get
+the successive tuples of context words and center
+words into x and y, and then displaying these words, you will notice that I'm using the usual Machine
+Learning notation for features and targets, as this is what the
+context words and center words are for the
+continuous bag of words model. So if I run the
+code on the array, I am happy because I'm learning, which I got by
+tokenizing the sentence, I'm happy because I'm learning, and the contexts
+have size of two, this is the output. Up next, you'll convert this
+sets of words into a set of vectors as can be consumed by the continuous bag
+of words model.

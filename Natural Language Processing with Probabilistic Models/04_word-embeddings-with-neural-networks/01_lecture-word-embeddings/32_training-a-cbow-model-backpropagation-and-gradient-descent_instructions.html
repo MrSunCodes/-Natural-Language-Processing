@@ -1,0 +1,88 @@
+<meta charset="utf-8"/>
+<co-content>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Backpropagation
+    </strong>
+    : calculate partial derivatives of cost with respect to weights and biases.
+   </p>
+  </li>
+ </ul>
+ <p>
+  When computing the back-prop in this model, you need to compute the following:
+ </p>
+ <p hasmath="true">
+  $$\frac{\partial J_{b a t c h}}{\partial \mathbf{W}_{1}}, \frac{\partial J_{b a t c h}}{\partial \mathbf{W}_{2}}, \frac{\partial J_{b a t c h}}{\partial \mathbf{b}_{1}}, \frac{\partial J_{b a t c h}}{\partial \mathbf{b}_{2}}$$
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <strong>
+     Gradient descent:
+    </strong>
+    update weights and biases
+   </p>
+  </li>
+ </ul>
+ <p>
+  Now to update the weights you can iterate as follows:
+ </p>
+ <p hasmath="true">
+  $$\begin{array}{l}\mathbf{W}_{\mathbf{1}}:=\mathbf{W}_{\mathbf{1}}-\alpha \frac{\partial J_{\text {batch }}}{\partial \mathbf{W}_{\mathbf{1}}} \\ \mathbf{W}_{\mathbf{2}}:=\mathbf{W}_{2}-\alpha \frac{\partial J_{\text {batch }}}{\partial \mathbf{W}_{\mathbf{2}}} \\ \mathbf{b}_{1}:=\mathbf{b}_{1}-\alpha \frac{\partial J_{\text {batch }}}{\partial \mathbf{b}_{\mathbf{1}}} \\ \mathbf{b}_{\mathbf{2}}:=\mathbf{b}_{2}-\alpha \frac{\partial J_{\text {batch }}}{\partial \mathbf{b}_{2}}\end{array}$$
+ </p>
+ <p hasmath="true">
+  A smaller alpha allows for more gradual updates to the weights and biases, whereas a larger number allows for a faster update of the weights. If $$ \alpha$$ is too large, you might not learn anything, if it is too small, your model will take forever to train.
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

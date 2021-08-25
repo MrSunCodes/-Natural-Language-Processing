@@ -1,0 +1,20 @@
+Congratulations on finishing
+the first course, and welcome to this second course on NLP. In this course you learn about
+probabilistic models and how to use them to predict word sequences. This is a technology that powers
+auto-correction as well as web search suggestions where you may go to
+websites and go to the search bar and type in a few words. And it will automatically suggest
+the next word will suggest what you may be searching for. In this course you also learn about Markov
+models and diva turbie algorithm, both of which are very important fundamental
+building blocks of many NLP systems. Eunice do you want to say
+a few words about this course? >> And the first week you will learn
+to build an auto-correct system by using probabilities of
+sequences of characters. In the second week, you'll learn
+about hidden Markov models, and you'll use them to implement
+a parts of speech tagging system. For example, if you looked up
+the query book of flights, then knowing that the word book is a verb, not a noun, will help the model
+better understand your query. >> By the third week, you will build an autocomplete systems
+using probabilities of sequences of words. In week four,
+we'll go back to word vectors. You've already learned to
+use them in course one, and we will show you how to generate
+them using neural networks. >> Thanks, Eunice and Lucas. I'm excited about all of you
+learning in this course these important building blocks for NLP. Let's jump in

@@ -1,0 +1,69 @@
+Welcome back. I'll now show you the cost function
+for the soft-max. You'll understand why it's as a cost function and you'll
+see why you are learning it. You basically have to predict
+one of the possible words. In order for you to be able to predict one of these
+V possible words, you need to minimize a
+certain cost function. In this video, you'll understand what cost function you are minimizing and why
+you are doing that. So let's take a look. Consider a machine
+learning model, a single training example
+made of an input and a true target and the value predicted by the model
+based on the input. It has a loss function which
+measures the error between the prediction and the true value for a single input
+training example. With the continuous
+bag-of-words model, for a set of inputs context words
+represented by vector x, for which the actual value is the vector y that represents
+the actual central word, the prediction is
+the vector y hat. The objective of the
+learning process is to find the parameters that minimize the loss given the
+training data sets. In the case of the continuous
+bag-of-words model, the parameters being adjusted
+by the learning process are the weighting
+matrices W_1 and W_2, and also the bias
+vectors b_1 and b_2. The loss-function you'll be using is the cross-entropy loss. I won't get into the theory. You should just know that the cross-entropy
+loss function is often used with
+classification models, which often go hand in hand with the softmax output layer
+in neural networks, just like the one
+you are using in the continuous
+bag-of-words model. If you've already worked
+with logistic regression, you probably already know a simple form of the
+cross-entropy loss function, also known as log loss, when there are just two classes. With the notation I used for the continuous
+bag-of-words model, the formula for
+cross-entropy loss for a training example is J
+equals the negative of the sum over k from 1 to v of y_k times the log of y
+hat k. As an example, consider the input context
+words I am because I, where the actual
+central word is, happy. The corresponding
+vector is this vector y with a one in the row
+corresponding to the word happy. The prediction could
+be this vector y hat. As the largest value is in the row corresponding
+to the word happy, this vector would
+be interpreted as predicting happy as
+the central word, which is the correct
+prediction in this case. So let's calculate the
+cross entropy loss. The log of y hat is this vector, multiplying each element by the corresponding element
+of y gives us this vector. I'm using the circle dot to denote element y's
+multiplication. Note, there is only
+one non-zero value, which is negative 0.49. The sum is therefore, this value and the loss is
+minus the sum, so 0.49. Now, what if the
+prediction was wrong? Say that the predicted
+that vector was 0.96, 0.01, 0.01, 0.01, predicting
+"am" instead of happy. The log would be this
+vector multiplying element y's by y would give
+us this vector. Then the sum is negative 4.61, and the loss is
+negative one times this, so positive 4.61. So you can see that the loss is larger when the
+prediction is incorrect. More generally, the
+cross-entropy loss boils down to negative one times the log of the value of the prediction
+element corresponding to the actual central word. So if you plot the cross-entropy
+loss as a function of the value of the prediction
+for the actual central word, you can see that if the
+model is predicting correctly with a y hat
+value closer to one, then your loss will
+be closer to zero. This is because log of
+one is equal to zero. If on the other hand the model
+is predicting incorrectly, then your y hat for the actual word will
+be closer to zero, resulting in a high loss value. The reason for this is that
+the limits of log x as x approaches zero
+is minus infinity. So for the loss, which uses negative
+one times the log, as y hat approaches zero, the loss approaches
+positive infinity. So the loss is rewarding correct predictions and
+penalizing incorrect predictions.

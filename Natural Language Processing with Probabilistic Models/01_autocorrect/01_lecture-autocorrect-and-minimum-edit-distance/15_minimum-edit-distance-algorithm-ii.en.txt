@@ -1,0 +1,56 @@
+Earlier, you used an intuitive
+approach to fill out the upper left corner of the
+minimum edit distance table. Now I'll show you how to use a formulaic approach
+to fill out the rest. So you filled out some
+of the table already, and it looks like this. Now, to fill out the
+rest of the table, you must first fill out
+the remaining cells of the leftmost
+column and top row. In fact, you know that to Transform play into
+an empty string, you can just delete each letter. So let's try that. You can fill out these
+cells top-to-bottom by following this formula
+for each cell. Look at the cell above
+and add the cost of an extra delete edit,
+which will be one. This means that to make the string p into
+the empty string, do on delete operation as
+shown in the previous example. To turn the string pl
+into the empty string, the leads p and deletes l, which are two deletes
+operations and so on. Now at D(4,0) you have the minimum edit distance for
+play to the empty string, which of course is just the
+cost of four deletes four. You can use the same idea in the first row by transforming the empty string to stay by inserting one letter at a time. You do that by following this
+slightly different formula, working from the
+left to the right, look at the previous cell and add a further inserts costs one. Looks good so far in
+the previous example, I showed you how to calculate
+this cell without formulas. But you can also
+find the solution by applying this big,
+scary-looking formula. It's builds upon the
+computation's you've already made in just the same way as
+using the no formula method. Some of this might feel like it's repeating what you just learned. What it's valuable to
+see the formulas too, especially when getting ready for the end of week assignment. So the distance to this
+orange cell is going to be the minimum distance to reach it from any of the
+previous three cells. Interesting, right? It might seem a little
+bit abstract at first, but you can break it
+down into smaller parts. For example, if you come
+from the cell above, you will add the delete costs just like you did in
+the first column. If you come from this
+cell to the left, you will add an inserts costs just like you
+did in the top row, and if you come from this
+cell to the upper left, you'll do one of two things
+either at the replace cost if the two-letter
+source I and targets J don't match or add
+nothing if they don't, because there is
+no edit to be done for letters that's
+are already the same. Here for this cell
+you have the minimum of one plus one, which is two. Another one plus
+one, which is two. Since these two
+letters don't match, you have zero plus two, which is also two. Then you take the minimum
+of all three of these, which is a2 in this case. Place that value in the cell. This is the minimum
+edit distance from p to s. By using the formula
+and costs defined. You can then fill out the rest
+of the table the same way, with the (m,n) entry in the bottom right corner being the minimum edit distance
+from play to stay, which is four adding color coding or a heatmap reveals some
+interesting patterns. Can you see what's happened from the middle square? That's right. Once you get from pl to st, the suffix of both
+words is the same a-y so there are no
+more edits needed. That's why these for
+carries down the diagonal. Now you know how to build a minimum edit distance algorithm efficiently using a table. Well done. There are
+a few things worth noting about this style of
+implementation before you go, I'll show you those next.

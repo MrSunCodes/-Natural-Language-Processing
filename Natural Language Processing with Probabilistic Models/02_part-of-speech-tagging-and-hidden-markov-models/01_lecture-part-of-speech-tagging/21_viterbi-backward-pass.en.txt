@@ -1,0 +1,71 @@
+Welcome back. In this video, I'm going to show you
+how you can use the probability matrix, the one that you learned
+in the previous video, and I'll show you how you can
+use it to create a path, so that you can assign a parts
+of speech tag to every word. Let me show you how you can do this. The backward pass is the last of
+three steps of the Viterbi algorithm, where you'll retrieve the most likely
+sequence of parts of speech tags for your given sequence of words. By now you've populated the matrices C and
+D. Now you just have to extract the path
+through your graph from the matrix D, which represents the sequence of hidden
+states that most likely generated our sequence,
+word one all the way to word K. First, calculate the index
+of the entry Ci,K with the highest probability
+in the last column of C. The probability at this index is
+the probability of the most likely sequence of hidden states,
+generating the given sequence of words. You use this index s to traverse
+backwards through the matrix D, to reconstruct the sequence
+of parts of speech tags. First, calculate the index
+of the entry Ci,K with the highest probability
+in the last column of C. The probability at this index
+is the probability of the most likely sequence of hidden states,
+generating the given sequence of words. You use this index s to traverse
+backwards through the matrix D, to reconstruct the sequence
+of parts of speech tags. Let's look at a simple example for a
+matrix D, for a model with four states and a given word sequence of length five. The matrix D, stores all the labels of the hidden states
+you've traversed in the forward path. If you're going back through the states, starting with the path that has the
+highest probability, you effectively got the most likely sequence of hidden states,
+or parts of speech sites. You start by looking up the entry
+with the highest probability in the last row of the matrix C, and
+extract the index s of that entry. Let's look at the matrix C with some
+probabilities you might have computed in the forward pass. You now want to calculate the index
+s of the entry in the last row of C, which has the highest probability. The entry with the highest probability,
+is the first one with 0.01. Written as a formula,
+s is the argmax Ci,K, which in this case is equal to 1. That index represents the last
+hidden state you traversed when you observe the word w5. So the most likely states of word
+w5 is the t1 parts of speech tag. So you add t1 to the end
+of the sequence and look up the next index in D,
+which tells you where you came from. This next index is 3. Now move on to the fourth
+word in the sequence, which means you're now looking at
+the fourth column in the matrix D. To decide which row of
+the matrix to look at, recall that in matrix D, column five,
+the top row holds the value 3, or 3 represents the previous state
+with the highest probability. So t3 is the most likely state for
+word number 4. So you would associate word number 4, with the state number 3, which is
+the parts of speech label number 3. You can keep walking left to
+each column of the matrix D. Since the value stored in column 4,
+row 3, is the number 1, you can assign the parts of speech sag
+t1 to the previous word, word number 3. Also, when you go left to column 3,
+you will look for row 1, representing state 1,
+which you see highlighted in green. The value stored in column 3,
+row 1 is 3, this means that the previous word has parts of speech
+tag number 3 associated with it. So associated word number 2
+with parts of speech tag 3. Now walk left one column
+in the matrix to column 2. Since the value stored in the green cell
+in column 3 is 3, go to row 3 of column 2. In column 2 the value
+stored in row 3 is 2. This means that for word one, the most likely state is
+part of speech tag number 2. And the algorithm stops as you
+have arrived at the start token, with the values stored in the second
+row of the first column being 0. The sequence of ti that you have
+recovered in the backward pass, is the sequence of parts of speech
+tags with the highest probability. Before you go, there are two implementation
+specific issues to be aware of. When you implement the Viterbi algorithm
+in the programming assignment, be careful with the indices, as lists of matrix indices in
+Python start with 0 instead of 1. Another implementation specific issue, is
+when you multiply many very small numbers like probabilities, this will lead
+to numerical issues, so you should use log probabilities instead, where
+numbers are summed instead of multiplied. Don't worry, I'll be revisiting
+this concept later in the course. Congratulations on finishing this week. You now know about the Viterbi algorithm,
+and specifically you've used this for parts of speech tagging. You can use part of
+speech tagging in search, in machine translation, in speech
+recognition, and also in parsing. Next week you're going to learn
+about a different type of task, which is known as N-gram language models.

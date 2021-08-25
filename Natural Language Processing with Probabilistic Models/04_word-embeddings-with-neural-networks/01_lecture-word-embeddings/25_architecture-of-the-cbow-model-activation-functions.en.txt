@@ -1,0 +1,51 @@
+Before jumping into the softmax function,
+I want to to talk a little bit about the ReLU function or
+the rectified linear units. Apart from the input neurons,
+which are used as is, each layer first calculates the weighted
+sum of its inputs and adds a bias, then passes the results into
+an activation function. So for the hidden layer you
+first calculate z1 = W1x + b1. And to get h,
+you pass z1 into an activation function, which is the rectified linear units
+function or ReLU for this layer. ReLU is a popular general purpose
+activation function that only activates the neuron every sum of its
+weighted inputs is positive and passes through this results,
+if that's the case. Mathematically, ReLU(x), where x is a real
+number is equal to the maximum of (0, x), you can see the graph for
+this function here. Here's an example for
+vectors z1, to get the vector h, it's representing the value of the hidden
+layer, you apply the ReLU function. The rows from z1 that are negative,
+like -0.3 and -4.6 becomes 0s in h, and
+the positive values stay as is, so for instance 5.1 stays as 5.1 and
+0.2 is still 0.2. Now for the output layer, you calculate
+the weighted sum of the values from the hidden layer and add the bias vector. That's w2h + b2 which I'll call z
+instead of z2 in the previous slides for reasons that will soon become apparent. You then passes into
+the activation function, which is the softmax function for
+this layer to get the output vector y hat. The softmax function works as follows, its input is a vector of real
+numbers as opposed to ReLU, which in its original form is
+a function of a single real number. It's output's a vector of real numbers in
+the interval 0 to 1 which sum up to 1 and can be interpreted as
+probabilities of exclusive events. In the case of the continuous
+bag of words model, when you apply softmax to z, you obtain
+an output vector y hat with v rows, where each row corresponds to a word
+of the vocabulary of the corpus. The values of the vector
+can be interpreted as the probability that the center word
+which is what the model is trying to predict is the word that is
+assigned to each of the rows. Mathematically, if the input
+to softmax is vector zi with element zi with i
+ranging from 1 to V, and the resulting vector is y
+hat with elements y hat of i. Then y hat i = e to the zi divided by the sum over j of e to the zj. The exponential transforms all our
+inputs two positive numbers and the divisor normalizes the vector so
+that the rols sum up to 1. To illustrate softmax with a numerical
+example, let's say that z is equal to this vector, taking the exponential of
+these values gives you this vector. And the row sum up to 97,899, which will be the denominator
+in the softmax function. You can now get the values of the y hat
+vector by dividing the previous vector by the sum of its elements. So the first element will
+be 8,103 divided 97,899, which is 0.083, and similarly for the other rows, and
+the sum is of course equal to 1. So mapping the rows to the vocabulary,
+you would interpret this output vector as meaning that given a specific
+inputs context words vector x. The probability that the center
+word is am is 0.0 is 3, for because the probability is 0.03 and
+so on. Now the highest you in the vector is
+0.61 for the row corresponding to happy. So this would mean that the model is
+predicting that the center word is happy. You'll get to implement both relu and softmax function in
+this week's assignment.

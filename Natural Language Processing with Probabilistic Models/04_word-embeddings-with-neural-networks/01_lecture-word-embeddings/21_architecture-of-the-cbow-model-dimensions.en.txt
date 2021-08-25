@@ -1,0 +1,38 @@
+You just saw the architecture of the continuous bag
+of words model and the vectors and matrices that are involved to make
+calculations on it. Now, I'll introduce you to the dimensions of these
+vectors and matrices. Here's the architecture of
+the neural network again. First, the input layer is
+represented by lowercase x, a column vector with v rows, where capital v is the
+size of the vocabulary. To get the values that will be stored in the hidden layer, you first calculate
+the weighted sum of the values from the input
+layer and add the bias. So W_1 times x plus b_1, and I'll call the result z_1. Lowercase h refers to the column of values stored
+in the hidden layer. To get h, you pass the values of z_1 into a ReLU activation. So in terms of dimensions, W_1, the weighting matrix
+between the input layer and the hidden layer has
+n rows and v columns, where n is the size of
+the word embeddings, b_1 the bias vector for the hidden layer has one row for each neuron in
+the hidden layer, so n in total. So when you multiply W_1 by x, and add the bias vector b_1, you get a column vector with n rows and passing it through ReLu preserves
+the dimensions. So as expected, the
+hidden layer is represented by a column
+vector with n rows. Next, to get the values
+of the output layer, you first need to calculate
+the weighted sum of the values from the hidden
+layer and add the bias. So W_2 times h plus b_2, which I'll call z_2. The values in z_2 are sometimes
+referred to as logits. To get the output y hats, you pass the values of the z_2 logits through a
+softmax activation function. Again, you'll see details of the activation functions
+later in the lecture. W_2, the weighting matrix
+between the hidden layer and the output layer has
+v rows and n columns, b_2, the bias vector for the output layer has one
+row for each output neuron. So v rows, when you
+multiply W_2 by the vector for the hidden layer h and
+add the bias vector b_2, you get a column
+vector with v rows. Again, no change when you pass it through
+softmax activation. So finally, you get the outputs column vector y hat with v zeros. If you had a situation where, instead of column vectors, you're working with row vectors, then you'll need to perform
+the calculations with transposed matrices
+and inverted terms in the matrix multiplication. So for instance,
+instead of calculating h equals W_1 times x plus b_1, as you did with the
+column vectors. If x and b_1 are row vectors, then you would calculate
+x times W_1 transpose plus b_1 to get z_1 and
+then h as a row vector. Next, I'll show you how to
+use the neural network with batches of several examples instead of just one
+example at a time.

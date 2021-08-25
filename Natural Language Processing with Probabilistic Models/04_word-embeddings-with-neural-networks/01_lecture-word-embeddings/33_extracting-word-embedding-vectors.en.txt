@@ -1,0 +1,43 @@
+You have already implemented forward propagation,
+back propagation, and gradient descent to train the neural network of a
+continuous bag of words model. But how do you get the word embeddings out of
+your trained neural nets? As you may remember,
+word embedding, are not directly outputs
+by the training process. They are a byproduct
+of the process. I'll now explain
+how you can extract word embeddings from
+a trained neural net. Remember, these are vectors that carry the
+meaning of the words of the vocabulary based on the context words in the corpus. Once you've trained
+your neural network, after iterating through all of your training data
+possibly several times, you can extract three
+alternative word embedding representations. The first possibility is
+to consider each column of W_1 as the column vector embedding vector of a
+word of the vocabulary. Recall that matrix W_1
+has v number of columns, so it has one column for
+each word in the vocabulary. The mapping between
+columns of W_1 and words, uses the same order
+as the input rows. For example, with the corpus, I am happy because
+I'm learning and the five rows of the input
+vector or matrix corresponds to m because
+happy, I, and learning. Then in W_1 your
+first column will be the word embedding
+column vector for m, the second for
+because and so forth. The second option to extract word embeddings is
+to use each row of W_2 as the word embedding row vector for
+the corresponding word. Matrix W_2 has v rows, one row for each word
+in the vocabulary. Again, the order is the same as the input
+vector or matrix. So with our sample
+corpus and inputs, the first row would be the word embedding row vector for m, the second for because and so on. The third and final
+option is to take the average of the two
+previous representations. So if you want the word
+embedding column vectors, you would average W_1 and the transpose of
+W_2 to obtain W_3, a new n by v matrix. You can then extract the
+word embedding vectors from each column of W_3 as
+you did previously. So with our visual example, the word embedding for m would be the first column of W_3, which would be the average of the values of the first column of W_1 and of the
+first row of W_2. In this week's assignment, you'll be averaging
+W_1 transpose and W_2 to extracts the word
+embeddings as row vectors. Now that you know how to
+train these word vectors, in next week's video, you'll learn how to test them. Specifically, you
+will learn about two types of evaluation metrics. The first type is
+intrinsic evaluation and the second type is
+extrinsic evaluation.

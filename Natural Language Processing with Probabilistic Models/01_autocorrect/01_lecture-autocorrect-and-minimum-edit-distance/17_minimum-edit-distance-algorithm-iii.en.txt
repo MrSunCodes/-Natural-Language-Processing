@@ -1,0 +1,44 @@
+A few quick notes on the minimum edit distance
+implementation you learned. Measuring the edit
+distance by using the three edits:
+inserts, deletes, and replace with costs 1, 1, and 2 respectively is known
+as Levenshtein distance. That's what you've used here. You can look it up for
+more details if you like. There are also
+well-known alternatives that have different edit rules. Finding the minimum
+edit distance on its own doesn't always solve
+the whole problem. You sometimes need to know
+how you got there too. You do this by keeping
+a backtrace which is simply pointer in each cell letting you know where you
+came from to get there. So you know the path taken
+across the table from the top-left corner to
+the bottom-right corner. This tells you the
+edits taken and is particularly useful in problems dealing with string alignment. But that's a discussion
+for another time. Finally, this tabular
+method for computation instead of brute force is a technique known as
+dynamic programming. Intuitively, this just means that solving the
+smallest subproblem first and then reusing that result to solve the
+next biggest subproblem. Saving that result, reusing
+it again and so on. This is what you did here by
+solving each cell in order. It's a well-known technique
+in computer science and will appear again and again in the coming weeks
+of this course. That's it. This was a long
+lesson, so well done. You should be proud of yourself. You took the problem of solving minimum edit distance and
+broke it down into parts. Then used the tabular
+based approach step-by-step for a very efficient
+implementation. Great work. Now try the programming
+assignment where you will code up this example with an
+optional challenge to build a backtrace tool. What a journey? You're just getting started here. The weeks ahead are loaded
+with more exciting stuff. But before you go, a quick recap. In the past few lessons, you learned a lot about some real-world applications of NLP that you're probably
+using every day. You learned about autocorrect and what it is and how
+it works its magic. You went step-by-step
+through how to build a working autoCorrect model using edit distance and
+work probabilities. You learned about the problem of string similarity and metric
+of minimum edit distance. Finally, you learned
+a really cool way to solve minimum edit distance using a tabular
+algorithmic technique known as dynamic programming. You now have the
+know-how to practice all these new skills in the week 1 programming
+assignments. Have fun and good luck. Now you know how to calculate the minimum edit distance
+using dynamic programming. Next week, you'll use
+dynamic programming again to assign part of
+speech tags to words. It's an exciting application
+which Jones will show you.

@@ -1,0 +1,34 @@
+What is autocorrect? Autocorrect is an
+application that changes misspelled words
+into the correct ones. You probably know it
+very well already. You have it on your
+phone, tablet, and on your computer inside your document editors,
+and email applications. For example, it takes a
+sentence like this one, happy birthday deah friend, and corrects the misspelled word deah to a word that you
+probably intended to write, which in this context
+would be dear, correctly spelled D-E-A-R. But what if you typed
+deer instead of dear? Here you see the word
+is spelled correctly, but its context is incorrect. Well, unless your friend
+happens to be an actual deer, you will not test for
+this contextual error this week as it's a more
+sophisticated problem. You'll get to learn
+about that another time. Instead, this week you'll
+only look for words that have been misspelled and make
+corrections to these. This involves a simple yet powerful model as you will see. Let me show you an overview
+of how autocorrect works. There are four key steps. First, identify an
+incorrect word, misspelling is one
+way to do this. Second, find strings 1, 2, 3, or any n edit distances away. Don't worry, you will learn about minimum edit
+distance shortly. For now, what's important
+to know is that if a string is one edit distance away from
+the string that you typed, it's more similar to
+your string compared to a string that is two
+edit distances away. Third, filter the strings for real words that are
+spelled correctly. Fourth, calculate
+word probabilities, which tell you how likely
+each word is to appear in this context and choose the most likely candidate
+to be the replacement. So now you have a better
+intuition for what is autocorrect and how it
+works. That's good. Next, you'll take a closer look at the details for implementing each step so that you can begin to build the autocorrect model. Now you know how
+autocorrect works. In the coding exercise
+of this week, you will implement it and see for yourself that it
+works really well. Next, I'll show you how to speed up edit distance computation.

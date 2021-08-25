@@ -1,0 +1,97 @@
+Welcome. When you train
+n-gram on a limited corpus, the probabilities of some
+words may be skewed. In this video, I
+will show you how to remedy that with a
+method called smoothing. First, you'll see an example of how n-gram is missing from the corpus affect the estimation
+of n-gram probability. Next, I'll go over some
+popular smoothing techniques. In the last section,
+I'll touch on other methods such as
+backoff and interpolation. Now that you've
+resolved the issue of completely unknown words, it's time to address another
+case of missing information. For example, how would you
+manage the probability of an n-gram made up of words
+occurring in the corpus, but where the n-gram
+itself is not present? Remember you had the corpus of three sentences earlier
+made up of n-gram like, eat chocolate. John drinks. Notice that both of
+the words John and eats are present in the corpus, but the bigram, John
+eats is missing. The count of the bigram, John eats would be zero and the probability of the bigram
+would be zero as well. Everything that did not occur in the corpus would be
+considered impossible. An estimation of the
+probability from count wouldn't work in this case. Smoothing is a technique
+that is going to help you deal with the situation
+in n-gram models. You might remember smoothing from the previous week where it was used in the transition matrix and probabilities for
+parts of speech. Here, you'll be using this method for
+n-gram probabilities. What does smoothing mean? Let's focus for now
+on add-one smoothing, which is also called
+Laplacian smoothing. Add-one smoothing
+mathematically changes the formula for the n-gram
+probability of the word n, based off its history. Here, you can see the
+bigram probability of the word w_n given
+the previous words, w_n minus 1, but its used in the same way
+to general n-gram. Add-one smoothing just says, let's add one both to the numerator and to each
+bigram in the denominator sum. This change can be interpreted as add-one
+occurrence to each bigram. So bigrams that are missing in the corpus will now have
+a nonzero probability. In the denominator,
+you are adding one for each possible bigram, starting with the
+word w_n minus 1. This corresponds to adding
+one to each cell in the row indexed by the word w_n minus
+1 in the account matrix. Then repeat this for as many times as there are
+words in the vocabulary. You can take the one
+out of the sum and add the size of the vocabulary
+to the denominator. This will only work
+on a corpus where the real counts are large enough to outweigh
+the plus one though. Otherwise, the probabilities of missing words would be too high, but add-one smoothing
+helps quiet a lot because now there are no
+bigrams with zero probability. If you have a larger corpus, you can instead add-k. This technique called add-k smoothing makes the
+probabilities even smoother. The formula is similar
+to add-one smoothing. Simply add k to the numerator in each possible
+n-gram in the denominator, where it sums up to k by
+the size of the vocabulary. So k add smoothing
+can be applied to higher order n-gram
+probabilities as well, like trigrams, four
+grams, and beyond. There are even more
+advanced smoothing methods like the Kneser-Ney
+or Good-Turing. If you'd like to do some
+further investigation, you can find some links in the literature listed at
+the end of this week. Another approach to dealing with n-gram that do not occur in the corpus is to use information
+about N minus 1 grams, N minus 2 grams, and so on. With the backoff, if n-gram
+information is missing, you use N minus 1 gram. If that's also missing, you would use N
+minus 2 gram and so on until you find
+nonzero probability. Using the lower level n-gram, ie N minus 1 gram, N minus 2 gram down to a unigram, it distorts the
+probability distribution. Especially for smaller corporal, some probability needs
+to be discounted from higher level n-gram to use
+it for lower-level n-gram. This Katz backoff method
+uses this counting. In very large web-scale corpuses, a method called stupid
+backoff has been effective. With stupid backoff, no probability
+discounting is applied. If the higher order n-gram
+probability is missing, the lower-order n-gram
+probability is used, just multiplied by a constant. A constant of about 0.4 was experimentally
+shown to work well. You can learn more about
+both these backoff methods in the literature included
+at the end of the module. Let's use backoff on an example. If you look at this corpus, the probability of the trigram, John drinks chocolate, can't be directly
+estimated from the corpus. So the probability of the
+bigram, drinks chocolate, multiplied by a constant
+in your scenario, 0.4 would be used instead. An alternative approach
+to back off is to use the linear interpolation
+of all orders of n-gram. That means that you
+would always combine the weighted probability
+of the n-gram, N minus 1 gram down to unigrams. For example, when calculating the probability for the trigram, John drinks chocolate,
+you could take 70 percent of the estimated
+probability for trigram. So John drinks chocolates
+plus 20 percent of the estimated
+probability for bigram, drinks chocolate,
+and 10 percent of the estimated unigram probability
+of the word, chocolate. More generally, for trigrams, you would combine the
+weighted probabilities of trigram, bigram and unigram. You weigh all these probabilities with constants like Lambda 1, Lambda 2, and Lambda 3. These need to add up to one. The Lambdas are learned from the validation parts
+of the corpus. You can get them by maximizing the probability of sentences
+from the validation set. Use a fixed language model trained from the
+training parts of the corpus to calculate n-gram probabilities and
+optimize the Lambdas. The interpolation
+can be applied to general n-gram by
+using more Lambdas. Now you're an expert in
+n-gram language models. You know how to create them, how to handle auto
+vocabulary words, and how to improve the
+model with smoothing. You will see that they
+work really well in the coding exercise
+where you will write your first program
+that generates text.

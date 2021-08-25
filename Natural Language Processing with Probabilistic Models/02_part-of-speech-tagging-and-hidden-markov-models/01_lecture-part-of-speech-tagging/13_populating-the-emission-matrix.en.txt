@@ -1,0 +1,32 @@
+Now that you have calculated the transition probabilities, you're ready to calculate the emission probabilities
+for the hidden Markov model. As you might imagine, the emission probabilities are calculated in a very similar way. Going back to your very
+small training corpus, which has the associated parts of speech tags depicted by
+the background color. In contrast to the transition
+probabilities here, you would want to count
+the co-occurrences of a part of speech tag
+with a specific word. For example, the word "you" appears two
+times in your corpus, tags with the blue
+parts of speech tag, and the blue parts of speech
+tag appears three times. So the emission probability
+for the word "you", following the blue parts of
+speech tag is two-thirds. Let's continue with a
+more complicated example; the haiku you processed
+in the previous lesson. You have the same tags and can start to fill in the counts. But instead of counting
+pairs of tags, you will now count
+how often a word is tagged with a specific
+tag like noun, verb, or the other tag like it is
+shown in the first column of the emission matrix for
+the tag and the word "in". The noun tag is associated
+zero times with the word "in". The verb tag is associated zero times
+with the word "into". The O tag is associated two times with
+the word "in" in the corpus. The formula with smoothing for the emission probabilities B of w_i given the tag
+t_i for the word is given by the counts
+of t_i and the word w_i divided by the
+corresponding row sum in the emission matrix, which is the same as dividing by the total counts of the tag, t_i, with capital N
+being the number of tags and capital V being
+the size of our vocabulary. To recap, you now can calculate both
+transition and emission matrices and also apply smoothing for better
+generalization of the model. You've come a long way
+this week. Great work. Given these two matrices, you will now learn
+how to use them together in order for you to compute the parts of speech
+tags of a given sentence.

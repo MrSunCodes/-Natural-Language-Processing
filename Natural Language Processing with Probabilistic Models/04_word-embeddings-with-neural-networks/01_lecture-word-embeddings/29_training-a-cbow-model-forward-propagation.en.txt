@@ -1,0 +1,41 @@
+Earlier you learned about the cross
+entropy loss function and how it can be used to measure
+the error made by the neural network of a Continuous Bag of Words Model
+when making a single prediction. Now, you'll train the neural
+net using batches of examples. First, you will propagate these
+examples forward into the network. If you don't remember what
+forward propagation is, no worries, I'll cover this in the video. You will then calculate the costs which is an extension of the loss to
+support a batch of training examples. Finally, you will use back propagation and
+gradient descent to optimize the parameters of the network
+and improve its predictive performance. I'll be describing these soon. A quick refresher on forward propagation. It involves taking input values, passing
+them forward through the neural network from input to output through
+each successive layer and calculating the values of
+the layers as you do so. Starting with a batch of
+examples represent it as X AV by m matrix where V is the vocabulary
+size and M is the batch size. You will first propagate X forward
+into the neural network and get the output Matrix y hat,
+which is Av by m Matrix. Remember that the outputs matrix simply
+stacks the m output column vectors corresponding to the m input vectors
+representing each of training examples. Now, let's revisit the formulas for
+forward propagation. To calculate the loss for a single example, you'll use
+the cross entropy loss function. When you're working with batches of
+examples, you will calculate the costs which has the same purpose as the loss and
+is actually based on the loss function. In practice, the terms loss and
+cost are often used interchangeably. But in this course, we will refer
+to loss for a single example and cost to refer to a batch of examples. The cross entropy cost for a batch of
+examples is simply the mean of the cross entropy losses of each of
+the m individual examples. Formally, the formula for
+the cross entropy costs for a batch of training
+examples is J batch equals -1/m times the sum over all the examples. So i from 1 to m of
+the sum over all the rows that each represents a word
+in the vocabulary, which is j from 1 to V of y,
+subscript j, superscripts i, times the logarithm of y hat,
+subscript j, superscript i. You can rewrite this formula
+as J batch equals 1/m times the sum over all
+the examples of J superscripts i. Where J superscript i is the loss for
+example i. By doing it this way, you can visualize the cost as
+the average of the individual losses. Up next you'll use the cost function to
+adjust the parameters of the neural net to improve its predictions. You have seen the cross
+entropy cost function and why it is helpful in predicting
+one of the possible words. In the next video, you're going to learn how to train your
+word vectors using this cost function.

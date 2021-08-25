@@ -1,0 +1,55 @@
+Welcome back. You'll now see the overall structure of the algorithm you'll be
+implementing this week. You'll see how you can use
+your initialized words vectors to predict
+new word vectors. Let's dive in and see
+how you can do this. I'll start with the
+overall process for machine learning model-based
+word embeddings, and then move on to how it's instantiated for the
+continuous bag-of-words model. As a reminder, to
+create word embeddings, you need the corpus and the machine learning model
+that performs a learning task. One byproduct of
+the learning task is a set of word embeddings. You also need a way to
+transform the corpus into a representation that is suited to the machine
+learning model. In the case of the continuous
+bag-of-words model, the objective of the
+task is to predict a missing word based on
+the surrounding words. The rationale is that if two unique words
+are both frequently surrounded by a similar sets of words when used in
+various sentences, then those two words tend to
+be related in their meaning. Another way to say this is that they are related semantically. For example, in the sentence, the little something is barking. With a large enough corpus, the model will learn
+to predict that the missing word is
+related to dogs, such as the word dog
+itself or puppy, hound, terrier, and so on. So the model will end up learning the meaning of words
+based on their context. So how do you use
+the corpus to create training data for
+the prediction task? Let's say that the
+corpus is the sentence, "I am happy because
+I am learning." You can ignore the
+punctuation for now. For a given word of a
+corpus, happy, for example, which I'll call the center word, I'll define the context
+words as four words. The two words before
+the center word, and the two words after it. I'll note this as C equals two for the two words
+before or after. Where C is called
+the half size of the context and it is a
+hyper-parameter of the model. You could use another
+number of words. This is just an example. So here, the context
+words for the center word happy are "I am", "because I". Let's also define the
+window as the count of the center word plus
+the context words. So here, the size
+of the window is equal to one center word plus two contexts words before plus two contexts words after
+which equals to five. To train the model, you will need a set of examples. Each example will be made of context words and the center
+word to be predicted. In this first example, the window is, "I am
+happy because I", and the model will take the context words
+"I am because I", and should predict the
+center word "happy". You can now slide the
+window by one word. The next training
+example that you have is "am happy something I am". The input to the model will be the context words "am happy I am" and the target center
+word to predict is because. Sliding the window by one again, the model will take happy
+because I'm learning, and should predict
+the targets "I". This is basically how the continuous bag-of-words
+model works. As you can see in the
+model architecture from the original paper, context words as inputs and
+center words as outputs. To recap, you just learned how the continuous bag-of-words
+model broadly works. For the rest of the week, you'll focus on preparing a training datasets
+starting from a corpus, and then you'll dive into the
+math powering the models.

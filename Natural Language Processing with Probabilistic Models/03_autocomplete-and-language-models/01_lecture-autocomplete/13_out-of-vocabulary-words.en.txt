@@ -1,0 +1,62 @@
+Good to see you again. In some applications
+of language models, you will encounter words that you did not see during training. In this video, I will teach
+you what to do in such cases. First, I'll explain what unknown words mean
+in this context, otherwise known as out
+of vocabulary words. Then, you'll add a
+new special word, UNK to your probability
+calculations from the training corpus. I will also share a few
+techniques to help you choose which words are considered known by building a vocabulary. What's our out of
+vocabulary words? First, a vocabulary is a set of unique words supported
+by a language model. In some tasks like speech recognition or
+question answering, you will encounter and generate only words from a
+fixed sets of words. For example, a chatbot can only answer in limited
+sets of questions. This fixed list of words is also called closed vocabulary. However, using a fixed set of words is not always
+sufficient for the task. Often, you have to deal
+with words you haven't seen before which results
+in an open vocabulary. Open vocabulary simply
+means that you may encounter words from
+outside the vocabulary, like a name of a new city
+in the training sets. The unknown words are
+also called out of vocabulary words
+or OOV for short. One way to deal with
+the unknown words is to model them by a special word UNK. To do this, you simply replace every unknown word with UNK. Here, you will process your training corpus to
+generalize it for unknown words. First, define which words
+belong to the vocabulary. Any the word in the training
+corpus that's not in the vocabulary will
+be replaced with UNK. Now, you can apply the engram language model
+probability calculations in the same way as before, just with the addition of UNK. Here's an example of
+how you can create the vocabulary and replace
+rare words with UNK. This is your input
+training corpus where you've decided that a vocabulary and vocabulary needs to appear in your
+corpus at least twice. In other words, the minimum
+frequency of the word is two. This is your updated
+corpus after replacing all words with frequency
+smaller than two with UNK. Vocabulary is then
+a set of words with frequency greater
+than or equal to 2. When using the language
+model on an input query, any words in the query
+that are outside the vocabulary are also
+replaced with UNK. So as you see here, the probability
+calculation is applied to the input query with UNK replacing the outer
+vocabulary word, Adam. Later in this specialization, I will show you
+some other methods to deal with unknown words. For example, you
+could spell them out character by character
+using deep learning, all in good time. Let's talk about how to decide on the words you want
+included in vocabulary V. You can create
+the vocabulary from the training corpus based
+on different criteria. For example, you could choose the minimum word frequency f that is usually a small number. The words that occur
+more than f times in the corpus will become
+part of the vocabulary V, then replace all other word's not in the vocabulary with UNK. This is a simple heuristic. But it guarantees that
+the words you care about, the ones that repeats a lot, are parts of the vocabulary. Alternatively, you can decide what the maximum size
+of your vocabulary is and only include words with the highest frequency up to
+the maximum vocabulary size. One thing to consider is the influence of UNKs
+on the perplexity. Is it going to make
+it lower or higher? Actually, it's usually lower. So it will look like your language model is
+getting better and better. But watch out. You might
+just have a lot of UNKs. The model would then generate a sequence of UNK quotes with high probability instead
+of meaningful sentences. Due to this limitation, I would recommend
+using UNKs sparingly. Finally, when using
+the perplexity metric, remember to only compare language models that have
+the same vocabulary. Now you know how to deal
+with auto vocabulary words. Next, I will show you a method to improve performance
+on rare words.

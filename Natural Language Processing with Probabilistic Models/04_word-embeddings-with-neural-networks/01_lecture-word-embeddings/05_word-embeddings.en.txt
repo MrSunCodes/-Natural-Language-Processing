@@ -1,0 +1,47 @@
+Previously you encountered some basic
+methods for representing words as numbers and how these simple
+representations fail to carry meaning. Now, I will introduce word embeddings,
+which are vectors that's carrying meaning. First, I'll give you
+an intuition of how word vectors can carry the meaning of words. Consider a horizontal
+number line like this. Words on the left are considered
+negative in some way and words on the right
+are considered positive in some. Words that's are much more negative
+are further to the left and words that are much more positive
+are further to the right. You could store their positions as
+numbers in a single vector of length 1. Notice that you can now use any
+decimal value instead of 0 and 1. This is quite useful in that now
+you can say that's happy and excited are more similar to each other
+compared to with the word paper. Because the number representing happy is
+closer to the number representing excited. You can extend this by adding
+a vertical number line, words that are higher on this line
+are more concrete physical objects. Whereas words lower on this
+line are more abstract ideas. Again, you can arrange each word
+along both of these number lines and see how words that are both more
+concrete and positive like puppy and kitten are closer together. You can store the two numbers that
+represent their position on the two number lines as a vector of length 2. What you've done here is to represent the
+vocabulary of words with a small vector of length 2. You gained a little bit of meaning
+while also giving up some precision. This vector representation is less
+precise than one hot vectors in that it's possible for two words to be located
+on the same point in this 2D plot, like snake and spider for example. What you created just now is
+an example of a word embedding. Word embeddings represent words
+in a vector form that's both has a relatively low dimension saying
+the hundreds to load thousands. Making it practical for calculations and
+carries the meaning of words making it possible to determine how
+semantically closed words are. iIn general purpose vocabularies,
+the vector for forest would usually be similar to the vector for tree, was very
+dissimilar to the vector for tickets. You will visualize such similarities
+as part of this week's assignment. It also makes it possible
+to work out analogies, such as finding the missing word in
+Paris is to France as Rome is to? Encoding the meaning of words is also the
+first step towards encoding the meaning of entire sentences, which is the foundation
+for more complex NLP use cases, like question-answering and translation. Creating word embeddings is one of
+the main objectives of this module. In this week's lecture, you will Implement word embeddings
+from simpler to more advanced methods. You'll also begin to build upon
+the simpler representation. Options finally a notes on terminology. In theory all vector representations
+of words, including one-hot vectors and word embedding vectors
+are known as word vectors. But the term word vector and word embeddings are used as well to
+refer to word embedding vectors. So don't be surprised if you also
+see these terms in the wild. Now that you can transform
+words into integers and vectors specifically one-hot vectors and
+word embeddings, you can explain why word embeddings are better suited
+to real-world pplications of NLP. Up next, you will create word embeddings.

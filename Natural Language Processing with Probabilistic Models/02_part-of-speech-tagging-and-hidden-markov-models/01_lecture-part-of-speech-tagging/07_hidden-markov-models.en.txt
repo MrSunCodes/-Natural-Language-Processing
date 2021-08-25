@@ -1,0 +1,46 @@
+Welcome back. In this video, you're going to learn
+about hidden Markov models and you will use them to decode
+the hidden states of a word. In our case, the hidden states is just
+the parts of speech of that word. You will also learn about emission
+probabilities in this video. So let me show you. The name hidden Markov model
+implies that states are hidden or not directly observable. Going back to the Markov model that has
+the states for the parts of speech, such as noun, verb, or other, you can
+now think of these as hidden states because these are not directly
+observable from the text data. It may seem a little confusing to
+think that this data is hidden because if you look at a certain word such as
+jump, as a human who is familiar with the English language,
+you can see that this is a verb. From a machine's perspective, however,
+it's only sees the text jump and doesn't know whether it is a verb or
+a noun. For a machine looking at the text data, what it's going to observe are the actual
+words, such as jump, run, and fly. These words are said to be observable
+because they can be seen by the machine. The Markov chain model and
+hidden Markov model have transition probabilities, which can be
+represented by a matrix A of dimensions n plus 1 by n where n
+is the number of hidden states. The hidden Markov model also has
+additional probabilities known as emission probabilities. These describe the transition from the
+hidden states of your hidden Markov model, which are parts of speech seen here
+as circles for noun, verb, and other, to the observables or the words of your
+corpus, shown here inside rectangles. Here for example are the observables for the hidden states vb,
+which are the words going, to, eat. The emission probability from the hidden
+states verb to the observable eat is 0.5. This means when the model is currently
+at the hidden state for a verb, there is a 50% chance that the observable
+the model will emit is the word eats. Here's an equivalent
+representation of the emission probabilities in the form of a table. Each row is designated for
+one of the hidden states. A column is designated for
+each of the observables. For example, the row for the hidden state verb intersects with
+the column for the observable eats. The value, 0.5,
+is the emission probability of going from the state verb to emitting
+the observable eat. The emission matrix represents the
+probabilities for the transition of your n hidden states representing your parts of
+speech tags to the n words in your corpus. Again, the row sum of
+probabilities is 1 and what you might have realized in this
+example is that there are emission probabilities greater than 0 for
+all three of our parts of speech tags. This is because words can have
+a different parts of speech tag and sign depending on the context
+in which they appear. For example, the word back should have a different part
+of speech tag in each of the sentences. The noun tag for the sentence,
+he lay on his back, and the adverb tag for, I'll be back. A quick recap of hidden Markov models. They consist of a set of N states, Q. The transition matrix
+A has dimension N by N and the emission matrix B
+has dimension N by V. You have seen the notation for
+hidden Markov models. You've also learned how to compute the
+transition and the emission probabilities.

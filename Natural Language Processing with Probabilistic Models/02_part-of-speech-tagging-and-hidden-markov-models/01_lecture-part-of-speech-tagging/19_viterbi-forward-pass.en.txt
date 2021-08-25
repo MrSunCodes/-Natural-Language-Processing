@@ -1,0 +1,32 @@
+Hi, again. You'll now use
+the Viterbi algorithm to continue populating
+the two matrices you initialized in
+the previous video. You'll see how you
+can assign part of speech tags to certain
+words in the sentence. Let's take a look at an example. The forward pass is the second
+of three steps to populate your matrices C and D. Now that you have initialized
+the matrices C and D, all the remaining entries
+in the two matrices, C and D, are populated column by column during
+the forward pass. For the C matrix, the entries are calculated by this complicated
+looking function. Let's picture the next
+step on the graph, so this becomes clear. Let's say you want to
+calculate the entry C_1,2. Then you can fill
+in the values to the formula starting
+from the last term. The last term of the
+formula is simply the emission probability
+from tag t_1 toward w_2. You have the a_k,1, which is the transition
+probability from the parts of speech tag t_k to the
+current tag t_1 and t_k1, which represents
+the probability for the preceding path
+you've traversed. You choose the k, which
+maximizes the entire formula. In this case, there are three states that are
+not the initial state. So k is either 1, 2 or 3. In each d_i,j you
+simply save the k, which maximizes the
+entry in c_i,j. Here, there are three states that are not the initial state, so k is either 1, 2 or 3. This is defined by this
+scary-looking formula, which is the same as for c_i,j, except the leading argmax. The argmax function
+returns the k, which maximizes the
+function arguments instead of the maximum value. Almost there just one more step. You now computes the
+probability matrix using the Viterbi algorithm. In the next video, you're
+going to see how you can use this probability
+matrix that you just created to reconstruct the path, so that you can identify each word with the
+parts of speech.

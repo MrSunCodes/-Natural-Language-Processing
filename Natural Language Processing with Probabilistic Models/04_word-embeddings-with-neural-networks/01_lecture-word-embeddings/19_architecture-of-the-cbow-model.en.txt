@@ -1,0 +1,54 @@
+The Continuous Bag of
+Words model is based on the shallow dense neural
+network with an input layer, a single hidden layer,
+and output layer. As you remember, the inputs of the model is a vector
+of contexts words, which I'll call X, and the output is the vector of
+the predicted center word, which I'll call Y hat. The size of these vectors is equal to the size
+of the vocabulary, which I'll call V.
+So the inputs and output size of this
+neural network is equal to V. For instance, if the corpus is, I'm happy because I'm learning, you have a five word vocabulary, so V equals five, and you'll create a
+neural network where the input and output layers
+each have five neurons. In the real world corporal, this number will typically
+be in the thousands. Next is the hidden layer. If you remember from the lesson on the word embedding process, the size or dimension of the word embeddings is a
+hyperparameter of the model, which you select yourself. Let's call the size of
+the word embedding N, where N can typically be
+hundred to a thousand. You will choose the size
+of the hidden layer to equal the size of the
+expected word, embedding. If you choose the size of
+the word embedding to be N, then you will choose
+the hidden layer for this networks to have N neurons. I'll call the vector
+presenting the hidden layer H. This is a regular
+feed-forward network, also called a dense
+neural network. So the three layers
+are fully connected. I'll call the weights
+matrix between the input layer and
+the hidden layer W_1, and the bias vector of
+the hidden layer is b_1. Similarly, W_2 is
+the weighting matrix between the hidden layer
+and the output layer, and b_2 is the bias vector
+of the output layer. These are the matrices
+in vectors that the neural network will be
+learning as you train it. To give you a little preview
+of where you're going, you will derive the
+word embeddings from the weight of matrices
+of this neural network. You will see more
+about this later. You now need activation functions for the hidden layer
+and output layer. The results of the activation of the hidden layer is what
+gets sent to the next layer, which in this case
+is the output layer. Similarly, the outcome
+of the activation of the output layer is what will be shown as the
+model's prediction. For the hidden layer, you will use the rectified
+linear unit function, or ReLU. For the output layer, you will use the
+softmax function. The activation
+functions themselves deserve a proper discussion, so I'll describe them in
+one of the next videos. There you have it,
+the architecture of the Continuous
+Bag of Words model. Next up, I'll go through the dimensions of the matrices
+in vectors I mentioned, another important
+components you'll need for completing this week's
+fun assignments. In this video, you have seen the overall structure
+of your algorithm. You were trying to predict
+the middle word given the words outside or
+the context words. However, you have V possible
+ways that you can predict. You can not use a logistic regression in this case because a logistic regression
+outputs two possibilities.

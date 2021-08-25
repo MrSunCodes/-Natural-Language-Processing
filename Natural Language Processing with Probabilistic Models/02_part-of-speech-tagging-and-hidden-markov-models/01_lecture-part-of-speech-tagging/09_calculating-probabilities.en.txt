@@ -1,0 +1,54 @@
+Hi again. You will now
+learn how to compute the probabilities for your transition and
+emission matrices. Given a corpus, you'll be able to populate
+these two matrices. Let me show you how
+you can do this. Let's start with how to
+populate the transition matrix, which holds all the
+transition probabilities between states of
+your Markov model. First, let's explore
+how to calculate the transition probabilities
+on a conceptual level. Using this very small training
+corpus, as you can see, the associates at parts of speech tags are depicted
+by the background color. To calculate the
+transition probabilities, you actually only
+use the parts of speech tags from your
+training corpus. So to calculate
+the probability of the blue parts of speech tag transitioning to the purple one, you first have to count
+the occurrences of that tag combination in
+your corpus, which is two. The number of all tag pairs starting with a
+blue tag is three, for this corpus at least. So two out of three
+tag sequences in your training corpus starts with the blue parts
+of speech tag. In other words, the
+transition probability for a purple tag following a blue
+tag is two out of three. More formally, in
+order to calculate all the transition probabilities
+of your Markov model, you'd first have to count all occurrences of tag pairs
+in your training corpus. I'll define this
+as the function C of the tags t_i minus 1, t_i, which returns that counts
+for the tag t_i minus 1 followed by the tag t_i
+in your training corpus. Next, you calculate the
+probability of a tag t_i following another tag
+t_i minus 1 as P of t_i, given t_i minus 1. This is counts of t_i minus 1, t _i in the numerator, which is the number of
+occurrences of t_i minus 1, t_i in the corpus, divided by the sum of all
+occurrences of the tag t_i minus 1 together with
+all the other tags t_j. This will become more clear
+in the following slides. I'll write this as P for the probability of t_i
+given t_i minus 1. This probability is given
+by the total number of times tag t_i occurred
+after attack t_i minus 1, which is given by the
+function counts of t_i, t_i minus 1 in the numerator. Then divide it by the number of total occurrences of
+the tag t_i minus 1, given by the function count of t_i minus 1 in the divisor. So say you want to train
+a model for Haiku, a type of short Japanese poetry. Your training corpus will
+be the following Haiku from Ezra Pound, written in 1913. In the programming assignments, you'll be given a
+prepared corpus. Here, you will make some
+changes to the corpus in order to calculate the
+correct probabilities. Consider each line of the
+corpus as a separate sentence. First, at the start token to each line or
+sentence in order to be able to calculate the
+initial probabilities using the previous
+defined formula. Then transform all words in
+the corpus to lowercase. So the model becomes
+case insensitive. The punctuation you should leave intact because it doesn't
+make a difference for a toy model and
+there aren't tags for different punctuation
+included here. So there you have it, a nicely prepared corpus.

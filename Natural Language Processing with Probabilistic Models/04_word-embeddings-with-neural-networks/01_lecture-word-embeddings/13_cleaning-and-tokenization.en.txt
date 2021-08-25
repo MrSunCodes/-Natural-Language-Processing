@@ -1,0 +1,72 @@
+If you already have experience in machine learning,
+unstructured data, such as numerical and
+categorical data, you know about techniques
+to clean your datasets. Now, I want to introduce you to a few fundamental techniques
+for cleaning text data. I'll give you some
+practical advice on how to clean a corpus and
+split it into words, or more accurately, tokens, through a process
+known as tokenization. In Course 1, I previously
+spoke about data preparation, cleaning, and tokenization, but now I'll go into
+some more details. First, you should
+consider the words of your corpus as case insensitive. For instance, the
+word "The" should be represented identically
+regardless of its case. For example, whether it
+begins with a capital T, say at the beginning of
+the sentence or not. You can do this by
+converting the corpus to either all lowercase
+or all uppercase. Secondly, you should
+handle punctuation. You could, for
+instance, represents all interrupting
+punctuation marks, such as full stops, commas, and question marks, as a single special word
+of the vocabulary. You could ignore non
+interrupting punctuation marks, such as quotation marks. You could collapse
+multi-sign marks, such as triple question marks into a single mark and so on. Next, you want to handle numbers. For example, if numbers do not carry an important
+meaning in your use case, you could drop all
+of the numbers. However, numbers may have significant meaning that is
+relevant to your use case. For instance, 3.14 is
+the number for Pi, 90210 is the name of a television show and the area code for Beverly
+Hills, California. So you can keep these numbers
+in your corpora as is. If you're corpora has
+many unique numbers, such as many area codes, you may find that it makes
+more sense to replace all the numbers with a special
+token, such as number. This allows the
+model to note that the important thing is
+that it's a number. Instead of trying to distinguish between 90210 and other area
+codes or phone numbers. You also need to handle
+special characters, such as mathematical symbols, currency symbols, section
+and paragraph signs, and line markup signs and so on. It's usually safe to drop them. Finally, and especially if you're working on modern
+corpus of user inputs, such as tweets or
+consumer reviews, you should handle special words, such as emojis and
+hashtags, #nlp. Depending on if and how you want your model to confirm
+meaning to them. You could, for example,
+consider that each emoji or hashtag should be considered
+as an individual word. I'll give a basic
+example in Python to demonstrate a few of
+these recommendations. The corpus in this example is, who loves "word
+embeddings" in 2020? I do!!! With an emoji, punctuation marks,
+and the number. Here's the code to import and
+initialize the libraries. I'm using the
+popular NLTK library to perform tokenization. It has a smart
+tokenization module named "punkt" to handle common
+special uses of punctuation. For example, it knows
+that full stops, which are periods and
+abbreviations and middle names do not signify
+the end of a sentence. I'm also using the
+emoji library just to give you an idea of how
+you could handle emojis. Next comes the actual logic. First, using a
+regular expression, I'm collapsing all interrupting punctuation signs and replacing
+them with a full stop. The outcome here is, who loves "word
+embeddings" in 2020, I do. With the question and exclamation marks replaced with
+a single full stop. Next time using NLTK's word tokenize function to split this string into an
+array of tokens. As you can see, the
+punctuation signs have been separated
+as individual tokens, including the quotation marks. Finally, using at
+least comprehension, I'm keeping tokens and
+converting them to lowercase if they are one of
+the following: alphabetical, if full-stops or previously an interrupting punctuation
+mark, an emoji. So this gets rid
+of numbers such as 2020 and unknown
+special characters, and this is the resulting array. You can now use this
+array to extract center words and their
+surrounding context words, which you'll dive into
+in more detail next.

@@ -1,0 +1,34 @@
+Hello. I'll now show you
+how you can initialize a matrix that can tell you the parts of speech
+side of every word. This matrix will tell
+you the probability that every word belongs to a
+certain part of speech. Let me show you how
+you can do this. As you just saw, the
+initialization step is one of three steps to populate
+the auxiliary matrices, C and D. In the
+initialization step, the first column of
+each of our matrices, C and D is populated. The first column of C represents probability of the
+transitions from the start states
+by in the graph to the first tag ti and word W1, meaning we're trying to go
+from tag 1 to the word W1. This is shown here
+for a model with three hidden states for
+the sake of clarity. So the first column entries, ci,1 are the products of the
+transition probabilities of the initial states and the respective emission
+probabilities. As your initial probabilities
+are contained in the first row of the
+transition matrix a, this is the same as a1,i times the corresponding
+emission probability b. B and C index function
+simply returns the column index and the matrix B for the given word here, W1. In the D matrix, you store the labels
+that represent the different states
+you're traversing when finding the most likely
+sequence of parts of speech tags for the
+given sequence of words, W1 all the way to Wk. In the first column, you simply
+set all entries to zero, as there are no
+proceeding parts of speech tags we have traversed. That's it for step one. You now know how to
+initialize your matrices. In the next video, you're
+going to learn how to continue populating
+your matrices, and you can use that to decode the parts of speech of
+a certain sentence. You will learn about
+the Viterbi algorithm, which you can use
+for part of speech tagging and also
+speech recognition.

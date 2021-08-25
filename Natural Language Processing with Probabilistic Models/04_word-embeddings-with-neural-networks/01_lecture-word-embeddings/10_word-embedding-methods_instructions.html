@@ -1,0 +1,134 @@
+<meta charset="utf-8"/>
+<co-content>
+ <h2 level="2">
+  Classical Methods
+ </h2>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    word2vec (Google, 2013)
+   </p>
+  </li>
+  <li>
+   <p>
+    <em>
+     Continuous bag-of-words (CBOW)
+    </em>
+    <em>
+     :
+    </em>
+    the model learns to predict the center word given some context words.
+   </p>
+  </li>
+  <li>
+   <p>
+    <em>
+     Continuous skip-gram / Skip-gram with negative sampling (SGNS)
+    </em>
+    : the model learns to predict the words surrounding a given input word.
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     Global Vectors (GloVe) (Stanford, 2014)
+    </em>
+    : factorizes the logarithm of the corpus's word co-occurrence matrix,  similar to the count matrix you’ve used before.
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    <em>
+     fastText (Facebook, 2016)
+    </em>
+    <em>
+     :
+    </em>
+    based on the skip-gram model and takes into account the structure of words by representing words as an n-gram of characters. It supports out-of-vocabulary (OOV) words.
+   </p>
+  </li>
+ </ul>
+ <h2 level="2">
+  Deep learning, contextual embeddings
+ </h2>
+ <p>
+  In these more advanced models, words have different embeddings depending on their context. You can download pre-trained embeddings for the following models.
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    BERT (Google, 2018):
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    ELMo (Allen Institute for AI, 2018)
+   </p>
+  </li>
+ </ul>
+ <ul bullettype="bullets">
+  <li>
+   <p>
+    GPT-2 (OpenAI, 2018)
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

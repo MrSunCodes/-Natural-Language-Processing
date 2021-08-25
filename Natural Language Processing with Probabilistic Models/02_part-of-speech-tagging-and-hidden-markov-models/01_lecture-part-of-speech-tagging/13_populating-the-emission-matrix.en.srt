@@ -1,0 +1,238 @@
+1
+00:00:00,000 --> 00:00:01,800
+Now that you have calculated
+
+2
+00:00:01,800 --> 00:00:03,600
+the transition probabilities,
+
+3
+00:00:03,600 --> 00:00:04,890
+you're ready to calculate
+
+4
+00:00:04,890 --> 00:00:08,055
+the emission probabilities
+for the hidden Markov model.
+
+5
+00:00:08,055 --> 00:00:09,599
+As you might imagine,
+
+6
+00:00:09,599 --> 00:00:11,310
+the emission probabilities are
+
+7
+00:00:11,310 --> 00:00:13,905
+calculated in a very similar way.
+
+8
+00:00:13,905 --> 00:00:16,834
+Going back to your very
+small training corpus,
+
+9
+00:00:16,834 --> 00:00:18,950
+which has the associated parts of
+
+10
+00:00:18,950 --> 00:00:21,770
+speech tags depicted by
+the background color.
+
+11
+00:00:21,770 --> 00:00:25,415
+In contrast to the transition
+probabilities here,
+
+12
+00:00:25,415 --> 00:00:28,430
+you would want to count
+the co-occurrences of
+
+13
+00:00:28,430 --> 00:00:31,870
+a part of speech tag
+with a specific word.
+
+14
+00:00:31,870 --> 00:00:34,040
+For example, the word
+
+15
+00:00:34,040 --> 00:00:36,915
+"you" appears two
+times in your corpus,
+
+16
+00:00:36,915 --> 00:00:39,360
+tags with the blue
+parts of speech tag,
+
+17
+00:00:39,360 --> 00:00:43,685
+and the blue parts of speech
+tag appears three times.
+
+18
+00:00:43,685 --> 00:00:46,865
+So the emission probability
+for the word "you",
+
+19
+00:00:46,865 --> 00:00:50,690
+following the blue parts of
+speech tag is two-thirds.
+
+20
+00:00:50,690 --> 00:00:53,885
+Let's continue with a
+more complicated example;
+
+21
+00:00:53,885 --> 00:00:56,845
+the haiku you processed
+in the previous lesson.
+
+22
+00:00:56,845 --> 00:00:58,580
+You have the same tags and
+
+23
+00:00:58,580 --> 00:01:00,425
+can start to fill in the counts.
+
+24
+00:01:00,425 --> 00:01:02,900
+But instead of counting
+pairs of tags,
+
+25
+00:01:02,900 --> 00:01:05,660
+you will now count
+how often a word is
+
+26
+00:01:05,660 --> 00:01:08,705
+tagged with a specific
+tag like noun, verb,
+
+27
+00:01:08,705 --> 00:01:12,065
+or the other tag like it is
+shown in the first column
+
+28
+00:01:12,065 --> 00:01:15,830
+of the emission matrix for
+the tag and the word "in".
+
+29
+00:01:15,830 --> 00:01:20,515
+The noun tag is associated
+zero times with the word "in".
+
+30
+00:01:20,515 --> 00:01:22,470
+The verb tag is
+
+31
+00:01:22,470 --> 00:01:25,620
+associated zero times
+with the word "into".
+
+32
+00:01:25,620 --> 00:01:27,590
+The O tag is
+
+33
+00:01:27,590 --> 00:01:31,675
+associated two times with
+the word "in" in the corpus.
+
+34
+00:01:31,675 --> 00:01:33,530
+The formula with smoothing for
+
+35
+00:01:33,530 --> 00:01:36,200
+the emission probabilities B of
+
+36
+00:01:36,200 --> 00:01:39,485
+w_i given the tag
+t_i for the word
+
+37
+00:01:39,485 --> 00:01:42,815
+is given by the counts
+of t_i and the word
+
+38
+00:01:42,815 --> 00:01:45,905
+w_i divided by the
+corresponding row sum
+
+39
+00:01:45,905 --> 00:01:47,540
+in the emission matrix,
+
+40
+00:01:47,540 --> 00:01:49,400
+which is the same as dividing by
+
+41
+00:01:49,400 --> 00:01:51,575
+the total counts of the tag, t_i,
+
+42
+00:01:51,575 --> 00:01:54,710
+with capital N
+being the number of
+
+43
+00:01:54,710 --> 00:01:59,215
+tags and capital V being
+the size of our vocabulary.
+
+44
+00:01:59,215 --> 00:02:00,950
+To recap, you now can
+
+45
+00:02:00,950 --> 00:02:03,170
+calculate both
+transition and emission
+
+46
+00:02:03,170 --> 00:02:04,970
+matrices and also apply
+
+47
+00:02:04,970 --> 00:02:07,775
+smoothing for better
+generalization of the model.
+
+48
+00:02:07,775 --> 00:02:10,700
+You've come a long way
+this week. Great work.
+
+49
+00:02:10,700 --> 00:02:12,440
+Given these two matrices,
+
+50
+00:02:12,440 --> 00:02:13,940
+you will now learn
+how to use them
+
+51
+00:02:13,940 --> 00:02:15,470
+together in order for you to
+
+52
+00:02:15,470 --> 00:02:19,650
+compute the parts of speech
+tags of a given sentence.

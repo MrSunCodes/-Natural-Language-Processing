@@ -1,0 +1,34 @@
+Good to see you again. The two types of evaluation metrics
+are intrinsic evaluation and extrinsic evaluation. Depending on the task you're trying to
+optimize for, you can choose one of them. So, let's dive in. Allow me to introduce
+intrinsic evaluation. Intrinsic evaluation methods assess how
+well the word embeddings inherently capture the semantic or
+syntactic relationships between the words. Semantics refers to the meaning of words,
+whereas syntax refers to the grammar. You could do this by testing
+the word embeddings on analogies. You could test semantic analogies, as in finding the missing word in France
+is to Paris as Italy is to blank. You could also evaluate
+the embeddings on syntactic analogies, such as plurals, tenses and comparatives. As in, seen is to saw as being is to? One consideration you should
+be aware of for this approach, is that there could be several
+possible correct answers. As in, wolf is to pack as bee is to blank,
+where the collective noun and missing word could, for
+instance, be swarm or colony. Here's an example from the original
+Word2vec research publication, with the word embeddings created
+from a huge training set. I should mention that the word
+embeddings were created by a continuous skip-gram model, and
+not a continuous bag of words model. But the evaluation principle is the same. Note that the analogies are not perfect. For example, the word embeddings failed
+to completely capture the relationship between chemical elements and
+their symbols. The symbol for copper is Cu,
+the symbol for zinc is Zn, the symbol for gold is Au,
+the symbol for Uranium is U, but the Word2vec embedding outputs
+the word plutonium instead of U. You could also perform intrinsic
+evaluation by using a clustering algorithm to group similar
+word embedding vectors, and determining of the cluster's
+capture related words. This could be automated using a human
+made reference, such as a thesaurus. Here is a visualization of
+clusters taken from a paper on the evaluation of word embeddings. If you look at the word cluster,
+you can see that the words fight and agitate are close to each other. Similarly, the word hair care and
+hairdressing are also close to each other. Interesting, right? In this week's assignment you will
+visualize the word embedding vectors, which qualifies as a basic intrinsic
+evaluation of the vectors that rely on human judgment to assess
+the quality of the embeddings. But first, I'll show you one more approach to evaluate the quality of word
+embeddings, extrinsic evaluation.

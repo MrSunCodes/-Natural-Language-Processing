@@ -1,0 +1,44 @@
+Good to see you again. You'll now be able to create
+a matrix to represent all the words in your vocabulary. Each vector of your matrix will
+correspond to one of the words. Let me show you how you
+can build this matrix. The simplest way to represent
+words as numbers is for a given vocabulary to assign
+a unique integer to each word. For example, based on a vocabulary
+of 1,000 basic English words, you could assign the number 1
+to the word a, 2 to able, and so on up to 1000 for zebra. While this numbering scheme is simple, one of the problems is that
+the order of the words, alphabetical in this example, doesn't make
+much sense from a semantic perspective. For example, there is no reason why
+happy should be assigned a greater number than hand for instance or
+a smaller one than zebra. Instead of using a numerical
+index to encode each word, you can represent the words
+using a column vector where each element corresponds
+to a word of the vocabulary. Using the previous example with
+a vocabulary of 1,000 words, each vector would contain 1,000 elements and each row
+would be labeled with one of the words. You can now encode each word with a unique
+column vector by putting a 1 in the row that has the same label and
+a 0 everywhere else. For example, the word happy would be
+represented as a vector with a 1 in the row corresponding to happy and
+zero in all of the other rows and for all the other words in the vocabulary. I'll call these vectors one-hot vectors to distinguish them from other types
+of vectors that you'll encounter. You can consider words as
+a categorical variable. You can easily go from integers
+to one-hot vectors and back by simply mapping the words in the
+rows to their corresponding row number. In this way, happy,
+word number 621 would be represented as a one-hot vector with a 1 in row 621,
+which corresponds to the word happy. Conversely, the vector for
+happy with a 1 in row 621 would be represented by integer 621
+which corresponds to happy. One-hot vectors have an advantage over
+using integers because one-hot vectors do not imply any relationship
+between any two words. Each vector says the word is
+either happy or it's not or the word is either zebra or it's not. However, one-hot vectors have two major
+limitations for most NLP use cases. For one, barring anything but the simplest vocabulary,
+these parts vectors are going to be huge. This means that working with one-hot
+vectors on a computer would require a lot of space and processing time. If your vectors are created with
+English words, you could end up with upwards of a million rows, one row for
+each word in the English vocabulary. Another limitation is that
+this representation doesn't carry the word's meaning. For instance, if you attempt to
+determine how similar two words are by calculating the distance
+between their one-hot vectors, then you will always get the same
+distance between any two pairs of words. For example, using one-hot vectors, the word happy is just as similar to the
+word paper as it is to the word excited. Intuitively, you would think that happy
+is more similar to excited than it is to paper. This is where word embeddings come
+into play as I'll explain next.

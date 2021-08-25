@@ -1,0 +1,42 @@
+Welcome to the second
+week of this course. In this video, you're
+going to learn about parts of speech tagging. Specifically, you will see the difference applications
+that it is used for. You will also learn
+how to compute the accuracy of a part
+of speech tagger. First, I'll go over what
+parts of speech tagging is. Then I'll show you how to
+use so-called Markov chains, and hidden Markov
+models to create parts of speech tags
+for your text corpus. Next, I will introduce
+the Viterbi algorithm, and demonstrates how it's
+used in hidden Markov models. You'll get to try this on
+your own with an example. You're going to apply all of these skills in this
+weeks coding assignments. It's a big week, so
+let's get started. Part-of-speech refers
+to the category of words or the lexical
+terms in the language. Examples of these
+lexical terms in the English language would
+be noun, verb, adjective, adverb, pronoun, preposition, although
+there are many others, let's take a look
+at this sentence. Why not learn something? Rising out, the names of
+these terms can quickly become cumbersome
+drink texts Analysis. So you're going to use a short representation called tags to represent
+these categories. The process of assigning
+these tags to the words of a sentence or your corpus is referred to as parts
+of speech tagging, or POS tagging for short, because POS tags describe the characteristics structure of lexical terms in a
+sentence or text. You can use them to make
+assumptions about semantics. They're used for identifying
+named entities too and a sentence such as the Eiffel
+Tower is located in Paris. Eiffel Tower in Paris
+are both named entities. Tags are also used for
+co-reference resolution. If you have the two sentences, the Eiffel tower is
+located in Paris, it is 324 meters high. You can use parts of speech
+sagging to infer that it's refers in this context
+to the Eiffel Tower. Another application is
+speech recognition, where you use parts of
+speech tags to check if a sequence of words has
+a high probability or not. You know now the
+difference applications of parts of speech sagging. In the next video,
+you're going to learn about Markov chains
+and you'll see how you can use them to decode the parts of speech of
+a certain sentence.

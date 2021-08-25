@@ -1,0 +1,82 @@
+Welcome. This week I will teach you
+N-gram language models. This will allow you to write your first
+program that generates text on its own. >> First I'll go over what's an N-gram is. Then you'll estimate the conditional
+probability of an N-gram from your text corpus. Now, what is an N-gram? Simply put,
+an N-gram is a sequence of words. Note that it's more than just a set of
+words because the word order matters. N-grams can also be characters or
+other elements. But for now,
+you'll be focusing on sequences of words. When you process the Corpus
+the punctuation is treated like words. But all other special characters
+such as codes, will be removed. Let's look at an example. I'm happy because I'm learning. Unigrams for this Corpus are a set of all
+unique single words appearing in the text. For example,
+the word I appears in the Corpus twice but is included only once in the unigram sets. The prefix uni stands for one. Bigrams are all sets of two words that
+appear side by side in the Corpus. Again, the bigram I am can be
+found twice in the text but is only included once in the bigram sets. The prefix bi means two. Also notice that the words must
+appear next to each other to be considered a bigram. Another example of bigram is am happy. On the other hand, the sequence I happy
+does not belong to the bigram sets as that phrase does not appear in the Corpus. I happy is omitted,
+even though both individual words, I and happy, appear in the text. Trigrams represent unique triplets of
+words that appear in the sequence together in the Corpus. The prefix tri means three. Here's some notation that you're
+going to use going forward. If you have a corpus of
+text that has 500 words, the sequence of words can be denoted
+as w1, w2, w3 all the way to w500. The Corpus length is
+denoted by the variable m. Now for a subsequence of that vocabulary, if you want to refer to just the sequence
+of words from word 1 to word 3, then you can denote it as w subscript 1,
+superscript 3. To refer to the last three
+words of the Corpus you can use the notation w subscript
+m minus 2 superscript m. Next, you'll estimate the probability
+of an N-gram from a text corpus. Let's start with unigrams. For example, in this Corpus, I'm happy because I'm learning,
+the size of the Corpus is m = 7. The counts of unigram I is equal to 2. So the probability is 2 / 7. For unigram happy,
+the probability is equal to 1/7. The probability of a unigram shown
+here as w can be estimated by taking the count of how many times were
+w appears in the Corpus and then you divide that by
+the total size of the Corpus m. This is similar to the word probability
+concepts you used in previous weeks. Now, let's calculate
+the probability of bigrams. Let's start with an example and
+then I'll show you the general formula. In the example I'm happy
+because I'm learning, what is the probability of the word am
+occurring if the previous word was I? It would just be the count of the bigrams,
+I am / the count of the unigram I. So you get the count of the bigrams
+I am / the counts of the unigram I. In this example the bigram
+I am appears twice and the unigram I appears twice as well. So the conditional probability
+of am appearing given that I appeared immediately
+before is equal to 2/2. In other words, the probability
+of the bigram I am is equal to 1. For the bigram I happy, the probability is equal to 0 because that
+sequence never appears in the Corpus. Finally, bigram I'm learning
+has a probability of 1/2. That's because the word
+am followed by the word learning makes up one half of
+the bigrams in your Corpus. Here is a general expression for
+the probability of bigram. The bigram is represented by
+the word x followed by the word y. So the probability of the word y
+appearing immediately after the word x is the conditional probability
+of word y given x. The conditional probability of y given x can be estimated as the counts
+of the bigram x, y and then you divide that by the count
+of all bigrams starting with x. This can be simplified to
+the counts of the bigram x, y divided by the count of all unigrams x. This last step only works if x
+is followed by another word. Let's calculate the probability
+of some trigrams. Using the same example from before,
+the probability of the word happy following the phrase I am
+is calculated as 1 divided by the number of occurrences of the phrase
+I am in the Corpus which is 2. The probability of the trigram or consecutive sequence of three words is the
+probability of the third word appearing given that the previous two words
+already appeared in the correct order. This is the conditional
+probability of the third word given that the previous two
+words occurred in the text. The conditional probability of the third
+word given the previous two words is the count of all three words appearing
+/ the count of all the previous two words appearing in the correct sequence. Note that the notation for
+the count of all three words appearing is written as the previous two
+words denoted by w subscript 1 superscript 2 separated by a space and
+then followed by w subscript 3. So this is just the counts of the whole
+trigram written as a bigram followed by a unigram. What about if you want to
+consider any number n? Let's generalize the formula
+to N-grams for any number n. The probability of a word
+wN following the sequence w1 to wN- 1 is estimated as
+the counts of N-grams w1 to wN / the counts of N-gram
+prefix w1 to wN- 1. Notice here that the counts
+of the N-gram forwards w1 to wN is written as
+count of w subscripts 1 superscript N- 1 and
+then space w subscript N. This is equivalent to C of w
+subscript 1 superscript N. By this point, you've seen N-grams along
+with specific examples of unigrams, bigrams and trigrams. You've also calculated their probability
+from a corpus by counting their occurrences. That's great work. >> Now, you know what N-grams are and how they can be used to compute
+the probability of the next word. Next, you'll learn to use it to compute
+probabilities of whole sentences.

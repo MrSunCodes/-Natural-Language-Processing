@@ -1,0 +1,20 @@
+Let's take a moment to reflect on everything you
+accomplished this week. You began with the
+definition of N-Grams and how to calculate their
+probabilities from a corpus. Then you combined the
+N-Gram probabilities to approximate the
+probability of a sentence. Organizing information
+about all N-Grams in the corpus helped you to
+build a language model, a tool that estimates the
+probability of any sentence. You also resolved
+situations where information about some parts
+of the sentence was missing. You handled this in several
+ways: by transforming your model to deal with outs of vocabulary words using
+special UNK word, and by applying
+several methods to handle missing N-Grams
+in the corpus, such as smoothing, backoff,
+and interpolation. Finally, you acquired a
+tool to help you choose the best language model for your task, the perplexity metric. Now you're ready to take on your assignment,
+sentence autocomplete. You've done amazing work this week and I hope
+you've enjoyed it. Best of luck on your assignment
+and I'll see you later.

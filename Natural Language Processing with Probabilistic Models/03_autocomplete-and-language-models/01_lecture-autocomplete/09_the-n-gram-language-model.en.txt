@@ -1,0 +1,86 @@
+First, you will process the
+corpus into accounts matrix. This captures the number of occurrences of relative n-grams. Next, you will transform
+the count matrix into a probability matrix
+that contains information about the conditional probability
+of the n-grams. Then you will relate the probability matrix
+to the language model. I will also show you how to deal with technical issues
+that arise from multiplying a loss of small numbers when calculating
+the sentence probability. The last section briefly
+describes how to use the n-gram language model to generate new sentences
+from scratch. So let's start with count matrix. Here's a reminder
+of the formula for testing the conditional
+probability of n-gram. Lowercase n denotes where the
+n-gram ends in a sentence. The count matrix captures the numerator for all n-grams
+appearing in the corpus. All unique corpus, N minus-1
+grams make up the rows, and all unique words of the
+corpus make up the columns. Now look at the count
+matrix of a bigram model. For the corpus I study I learn, the rows represent
+the first word of the bigram and the columns represent the second
+word of the bigram. For bigram study I, you need to find a row
+with the word study, any column with the word I. This bigram appeared
+just once in the corpus. The whole count matrix can be treated in a single pass
+through the corpus. You can do that by reading
+through the corpus with a sliding window composed of two words to
+represent your bigram. For each bigram you find, you increase the value in
+the count matrix by one. Let's move on to the
+probability matrix. Now that you've used the
+count matrix to provide your numerator for the
+n-gram probability formula, it's time to get the denominator. First, update the count matrix by calculating the
+sum for each row, then normalize each cell. You can do that by dividing each cell by the
+corresponding row sum. The row sum is equivalent to
+your counts of the n minus 1 gram prefixes from the
+formula's denominator. This will always be true since the n minus 1 gram prefix is always followed by some word. If the prefix was at the
+end of the sentence, it is now followed by the
+end of the sentence token. Let's create a probability
+matrix from an example. First, calculate the sum of
+bigram count for each row, then divide each
+cell by the row sum. Let's look at one example. The prefix I is followed
+by study or by learn. As you can see in
+the count matrix, if you add up those
+two instances, you'll see that the
+word I appears twice. Now let's go back to
+the probability matrix. You can see that the
+probability of I study is 1.5 and the probability
+of I learn is also 1.5. The next step is to connect
+the probability matrix with your definition of
+the language model from this week's overview. The language model can now be
+a simple scripts that uses the probability matrix to estimate the probability
+of a given sentence. It estimates the probability by splitting the sentence into a series of n-grams and then finding their probability
+in the probability matrix. Alternatively, the language model can predict the next elements of a sequence by extracting the last n minus 1 gram
+from the end of a sequence. After that, the language model finds the corresponding row in the probability matrix and returns the word with
+the highest probability. Using the probability matrix
+from the previous slide, find the probability of
+the sentence I learn. You take 1 times 0.5 times
+1, which equals 0.5. You have a 50 percent
+chance of seeing the sentence I learn
+next in your corpus. That's cool. There are a few loose ends in the
+language model implementation. Let's discuss them. The sentence
+probability calculation requires multiplication of
+a lots of small numbers. In fact, all of the probabilities fall in the interval 0-1. Multiplying many
+probabilities brings the risk of numerical underflow. You may remember this
+from previous modules. All you need to know
+is that computers have difficulty storing very
+small decimal numbers. This can end up causing errors. If you have an
+opportunity to store a larger number
+instead, you should. You may recall the
+mathematical trick for solving this where you wrote the product of terms
+as the sum of other terms, the logarithm of a product. One interesting application
+of language models is text generation from scratch
+or using a small hint. For example, the algorithm chooses brackets S Lynn to start. Next, it chooses a
+bigram with Lynn, in this case, Lynn drinks, then it chooses drinks tea. Finally, it chooses to
+end the sentence there. This happens for all bigram starting with tea in your corpus. This is how the algorithm
+accomplishes this. First, it randomly chooses among all bigrams starting with the starts of sentence
+symbol brackets S based on the
+bigram probability. That means the bigrams
+with higher values in the probability matrix are
+more likely to be chosen. Next, the algorithm
+chooses a new bigram at random from the bigrams beginning with a
+previously chosen word, then this bigram is
+added to your sentence. The algorithm continues
+on like this until the end sentence token brackets
+backslash S is chosen. As you might have guessed, this is done by randomly
+choosing a bigram that starts with the previous word and
+ends with the backslash S. Now you know how to calculate
+n-gram probabilities from a corpus so we can build
+your own language model. Next, I'll show you
+how to evaluate it.

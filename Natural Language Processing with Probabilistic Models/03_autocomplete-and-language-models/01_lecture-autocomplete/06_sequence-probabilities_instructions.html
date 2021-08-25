@@ -1,0 +1,112 @@
+<meta charset="utf-8"/>
+<co-content>
+ <p>
+  You just saw how to compute sequence probabilities, their short comings, and finally how to approximate N-gram probabilities. In doing so, you try to approximate the probability of a sentence. For example, what is the probability of the following sentence:
+  <em>
+   The teacher drinks tea.
+  </em>
+  To compute it, you will make use of the following:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p hasmath="true">
+    $$ P(B \mid A)=\frac{P(A, B)}{P(A)} \Longrightarrow P(A, B)=P(A) P(B \mid A) $$
+   </p>
+  </li>
+  <li>
+   <p hasmath="true">
+    $$P(A, B, C, D)=P(A) P(B \mid A) P(C \mid A, B) P(D \mid A, B, C)$$
+   </p>
+  </li>
+ </ul>
+ <p>
+  To compute the probability of a sequence, you can compute the following:
+ </p>
+ <p hasmath="true">
+  $$\begin{array}{r}P(\text { the teacher drinks tea })=  \begin{array}{r}P(\text {the}) P(\text { teacher } \text {the}) P(\text { drinks }  \text {the teacher})  P(\text {tea} \mid \text {the teacher drinks })\end{array}\end{array}$$
+ </p>
+ <p>
+  One of the main issues with computing the probabilities above is the corpus rarely contains the exact same phrases as the ones you computed your probabilities on. Hence, you can easily end up getting a probability of 0. The
+  <em>
+   Markov assumption
+  </em>
+  indicates that only the last word matters. Hence:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p hasmath="true">
+    $$\text { Bigram } \quad P\left(w_{n} \mid w_{1}^{n-1}\right) \approx P\left(w_{n} \mid w_{n-1}\right)$$
+   </p>
+  </li>
+  <li>
+   <p hasmath="true">
+    $$\text { N-gram } \quad P\left(w_{n} \mid w_{1}^{n-1}\right) \approx P\left(w_{n} \mid w_{n-N+1}^{n-1}\right)$$
+   </p>
+  </li>
+ </ul>
+ <p>
+  You can model the entire sentence as follows:
+ </p>
+ <ul bullettype="bullets">
+  <li>
+   <p hasmath="true">
+    $$P\left(w_{1}^{n}\right) \approx \prod_{i=1}^{n} P\left(w_{i} \mid w_{i-1}\right)$$
+   </p>
+  </li>
+  <li>
+   <p hasmath="true">
+    $$P\left(w_{1}^{n}\right) \approx P\left(w_{1}\right) P\left(w_{2} \mid w_{1}\right) \ldots P\left(w_{n} \mid w_{n-1}\right)$$
+   </p>
+  </li>
+ </ul>
+ <p>
+ </p>
+</co-content>
+<style>
+ body {
+    padding: 50px 85px 50px 85px;
+}
+
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 5px 20px;
+    text-align: left;
+}
+input {
+    margin: 10px;
+}
+}
+th {
+    font-weight: bold;
+}
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+pre {
+    display: block;
+    margin: 20px;
+    background: #424242;
+    color: #fff;
+    font-size: 13px;
+    white-space: pre-wrap;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    border: 1px solid #ccc;
+}
+</style>
+<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$$','$$'], ['$','$'] ],
+      displayMath: [ ["\\[","\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>

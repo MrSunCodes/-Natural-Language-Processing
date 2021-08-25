@@ -1,0 +1,42 @@
+By now, you are familiar
+with the dimensions of the vectors and
+matrices used in the neural network for
+the continuous bag of words model when feeding
+in a single example. Instead of passing inputs vectors representing individual examples, you may want to pass in
+several examples at a time. This usually makes
+the learning process quicker for a few reasons. For brevity, I won't get
+into them right now. Feeding several examples
+into the neural nets at the same time is known
+as a batch processing. You're going to be doing it yourself in this
+week's assignments. Say that you want to
+feed m inputs context word vectors into the neural network
+during each iteration. M is called the batch size. It's a hyperparameter for the model that you
+define at training time, you can join these m column
+vectors side-by-side to form a matrix with v
+rows and m columns, which I'll note as capital X. You can then pass this
+matrix through the network, and you will get capital H, the matrix representing
+the m values of the hidden layer equals ReLU, the weights matrix Z_1, where Z_1 is W_1
+times X plus B_1. It's an n rows by
+m columns matrix. Note that you need to
+replace the original B_1 by its vector with a
+bias matrix, B_1, where you duplicates
+the column vector m times to have an m by n matrix, so that the bias terms are added to each of
+the weighted sums, just has a tip;when you're
+working on the assignment, this is known as broadcasting
+the vector to a matrix, and it's performed automatically
+by NumPy when adding a matrix to a column vector
+with the same number of rows. Next, capital Y hat, the matrix containing
+the m outputs. It is equal to the softmax
+of w times h plus b_2. Again, you're replicating
+the bias vector lowercase b_2 m times to get
+the bias matrix capital b_2. Y hat has v rows and m columns. You can break y-hat down
+into m column vectors, each one corresponding to
+one of the input contexts, word vectors from
+the inputs matrix. The vector from the
+first column of the inputs matrix
+is transformed into the vector corresponding to the first column of
+the outputs matrix, and similarly for the
+other m minus one vectors. Next, I'll introduce the
+activation functions used by the continuous
+bag of words model. You're getting closer to a working model.
+I'll see you soon.
